@@ -3,6 +3,8 @@ package Route;
 public abstract class Feu extends Semaphore 
 {
 
+	//c'est du feu mamene
+	
 	private CouleurFeu couleurFeu;
 	
 	@Override
