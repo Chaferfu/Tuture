@@ -5,6 +5,7 @@ public abstract class Feu extends Semaphore
 
 	
 	//committest
+	
 	private CouleurFeu couleurFeu;
 	
 	@Override
