@@ -1,9 +1,10 @@
 package Route;
 
-public class CapteurVitesse extends Capteur {
-
-	public CapteurVitesse(Segment segment,ElementDeRegulation elementDeRegulation) {
-		super(segment, elementDeRegulation);
+public class CapteurVitesse extends Capteur 
+{
+	public CapteurVitesse(Segment s, ElementDeRegulation e, Sens S, int p) 
+	{
+		super(s, e, S, p);
 	}
 
 }

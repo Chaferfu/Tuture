@@ -19,5 +19,16 @@ public class Voiture
 		compteur++;
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Voiture(Route route, int pos, Sens sens, int vitesse) 
+	{
+		this.id = compteur;
+		compteur++;
+		routeCourante = route;
+		position = pos;
+		this.sens=sens;
+		vitesseCourante = vitesse;
+	}
+
 
 }

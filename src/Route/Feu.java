@@ -3,8 +3,6 @@ package Route;
 public abstract class Feu extends Semaphore 
 {
 
-
-	
 	protected CouleurFeu couleurFeu;
 	
 	@Override
@@ -13,9 +11,10 @@ public abstract class Feu extends Semaphore
 		//TODO
 	}
 	
-	public Feu() 
+	public Feu(ElementDeRegulation elementDeRegulation,Segment segment,  Sens sens) 
 	{
-		
+
+		super(elementDeRegulation, segment, sens);
 	}
 
 }
