@@ -2,8 +2,8 @@ package Route;
 
 public class CapteurVitesse extends Capteur {
 
-	public CapteurVitesse() {
-		// TODO Auto-generated constructor stub
+	public CapteurVitesse(Segment segment,ElementDeRegulation elementDeRegulation) {
+		super(segment, elementDeRegulation);
 	}
 
 }

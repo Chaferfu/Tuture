@@ -2,8 +2,8 @@ package Route;
 
 public class CapteurPresence extends Capteur {
 
-	public CapteurPresence() {
-		// TODO Auto-generated constructor stub
+	public CapteurPresence(Segment s, ElementDeRegulation e) {
+		super(s, e);
 	}
 
 }
