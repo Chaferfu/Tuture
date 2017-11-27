@@ -5,9 +5,10 @@ public abstract class Capteur
 	private Segment segment;
 	private ElementDeRegulation elementDeRegulation;
 	
-	public Capteur() 
+	public Capteur(Segment s, ElementDeRegulation e) 
 	{
-		// TODO Auto-generated constructor stub
+		segment = s;
+		elementDeRegulation = e;
 	}
 
 }
