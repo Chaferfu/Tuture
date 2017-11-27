@@ -8,7 +8,6 @@ public class Voiture
 	private int position;  //Position sur route actuelle;
 	private Sens sens;
 	private int vitesseCourante;
-	
 	private Route routeCourante;
 	
 	
