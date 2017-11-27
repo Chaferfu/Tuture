@@ -9,5 +9,4 @@ public abstract class Capteur
 	{
 		// TODO Auto-generated constructor stub
 	}
-
 }
