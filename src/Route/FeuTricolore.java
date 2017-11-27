@@ -7,8 +7,8 @@ public class FeuTricolore extends Feu {
 	{
 		//TODO
 	}
-	public FeuTricolore() {
-		// TODO Auto-generated constructor stub
+	public FeuTricolore(ElementDeRegulation elementDeRegulation,Segment segment, Sens sens) {
+		super(elementDeRegulation, segment, sens);
 	}
 
 }

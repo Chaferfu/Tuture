@@ -9,9 +9,9 @@ public class FeuBicolore extends Feu
 		//TODO
 	}
 	
-	public FeuBicolore() 
+	public FeuBicolore(ElementDeRegulation elementDeRegulation,Segment segment, Sens sens) 
 	{
-		// TODO Auto-generated constructor stub
+		super(elementDeRegulation, segment, sens);
 	}
 
 }

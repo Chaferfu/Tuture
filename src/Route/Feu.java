@@ -13,9 +13,9 @@ public abstract class Feu extends Semaphore
 		//TODO
 	}
 	
-	public Feu() 
+	public Feu(ElementDeRegulation elementDeRegulation,Segment segment,  Sens sens) 
 	{
-		// TODO Auto-generated constructor stub
+		super(elementDeRegulation, segment, sens);
 	}
 
 }
