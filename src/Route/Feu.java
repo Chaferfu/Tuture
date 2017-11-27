@@ -4,7 +4,7 @@ public abstract class Feu extends Semaphore
 {
 
 	
-	//committest
+	//committestgrddgr
 	
 	private CouleurFeu couleurFeu;
 	
