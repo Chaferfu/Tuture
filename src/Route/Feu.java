@@ -12,6 +12,7 @@ public abstract class Feu extends Semaphore
 	{
 		//TODO
 	}
+	
 	public Feu() 
 	{
 		

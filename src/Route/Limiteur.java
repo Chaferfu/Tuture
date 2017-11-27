@@ -10,9 +10,14 @@ public class Limiteur extends Semaphore
 		//TODO
 	}
 	
-	public Limiteur(int limite) 
+
+	public Limiteur(int l,ElementDeRegulation elementDeRegulation,Segment segment,Sens sens) 
 	{
+		super(elementDeRegulation, segment, sens);
 		this.limite = limite;
+		
+		limite = l;
+
 	}
 
 }

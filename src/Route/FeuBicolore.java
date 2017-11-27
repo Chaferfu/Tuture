@@ -11,7 +11,7 @@ public class FeuBicolore extends Feu
 	
 	public FeuBicolore() 
 	{
-		// TODO Auto-generated constructor stub
+		this.couleurFeu = CouleurFeu.Vert;
 	}
 
 }
