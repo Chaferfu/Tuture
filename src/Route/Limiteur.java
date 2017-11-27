@@ -10,9 +10,9 @@ public class Limiteur extends Semaphore
 		//TODO
 	}
 	
-	public Limiteur() 
+	public Limiteur(int limite) 
 	{
-		// TODO Auto-generated constructor stub
+		this.limite = limite;
 	}
 
 }

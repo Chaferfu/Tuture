@@ -8,7 +8,7 @@ public class FeuTricolore extends Feu {
 		//TODO
 	}
 	public FeuTricolore() {
-		// TODO Auto-generated constructor stub
+		this.couleurFeu = CouleurFeu.Vert;
 	}
 
 }

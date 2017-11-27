@@ -9,7 +9,7 @@ public class Jonction extends Route
 	
 	public Jonction() 
 	{
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
 }

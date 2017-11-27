@@ -5,7 +5,7 @@ public abstract class Feu extends Semaphore
 
 
 	
-	private CouleurFeu couleurFeu;
+	protected CouleurFeu couleurFeu;
 	
 	@Override
 	public void limiteVitesse()
@@ -14,7 +14,7 @@ public abstract class Feu extends Semaphore
 	}
 	public Feu() 
 	{
-		// TODO Auto-generated constructor stub
+		
 	}
 
 }
