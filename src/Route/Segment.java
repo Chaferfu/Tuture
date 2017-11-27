@@ -7,6 +7,7 @@ public class Segment extends Route
 	private static int compteur = 0;
 	private int id;
 	
+
 	private Jonction jonction1;
 	private Jonction jonction2;
 	private ArrayList<Capteur> capteurs = new ArrayList<Capteur>();

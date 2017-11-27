@@ -8,9 +8,9 @@ public class ElementDeRegulation
 	private Jonction jonction;
 	private ArrayList<Semaphore> semaphores = new ArrayList<Semaphore>();
 	
-	public ElementDeRegulation() 
+	public ElementDeRegulation(Jonction jonction) 
 	{
-		// TODO Auto-generated constructor stub
+		this.jonction = jonction;
 	}
 
 }

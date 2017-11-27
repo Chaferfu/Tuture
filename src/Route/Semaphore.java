@@ -16,7 +16,7 @@ public abstract class Semaphore
 		//TODO
 		//redefinition dans chacune des sous-classes ? 
 	}
-	
+
 	public Semaphore(ElementDeRegulation e, Segment s, Sens sens) 
 	{
 		elementDeRegulation = e;
