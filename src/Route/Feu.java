@@ -3,8 +3,7 @@ package Route;
 public abstract class Feu extends Semaphore 
 {
 
-	
-	//committestgrddgr
+
 	
 	private CouleurFeu couleurFeu;
 	
