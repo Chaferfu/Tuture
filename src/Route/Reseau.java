@@ -1,7 +1,11 @@
 package Route;
 
+import java.util.ArrayList;
+
 public class Reseau {
 
+	ArrayList<Route> routes = new ArrayList<Route>();
+	
 	public Reseau() {
 		// TODO Auto-generated constructor stub
 	}

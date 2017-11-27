@@ -8,9 +8,9 @@ public class Radar extends Semaphore {
 		//TODO
 	}
 	
-	public Radar() 
+	public Radar(ElementDeRegulation e, Segment s, Sens sens) 
 	{
-		// TODO Auto-generated constructor stub
+		super(e, s, sens);
 	}
 
 }

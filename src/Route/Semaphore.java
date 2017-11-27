@@ -16,8 +16,11 @@ public abstract class Semaphore
 		//TODO
 		//redefinition dans chacune des sous-classes ? 
 	}
-	public Semaphore() 
+	
+	public Semaphore(ElementDeRegulation e, Segment s, Sens sens) 
 	{
-		// TODO Auto-generated constructor stub
+		elementDeRegulation = e;
+		segment = s;
+		this.sens = sens;
 	}
 }
