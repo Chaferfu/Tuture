@@ -4,14 +4,18 @@ import java.util.ArrayList;
 
 public abstract class Route 
 {
+
+	
+
 	public void avancerVoitures() {};
-	protected int longueur;
-	protected ArrayList<Voiture> lvoitures = new ArrayList<Voiture>();
+	private int longueur;
+	private ArrayList<Voiture> lvoitures = new ArrayList<Voiture>();
+	private String id;
+
 	
-	
-	public Route() 
+	public Route(String id) 
 	{
-		// TODO Auto-generated constructor stub
+		this.id=id;
 	}
 
 
