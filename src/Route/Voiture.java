@@ -24,7 +24,9 @@ public class Voiture
 		this.id = compteur;
 		compteur++;
 		routeCourante = route;
+		if(routeCourante.getLongueur() >= pos){
 		position = pos;
+		}
 		this.sens=sens;
 		vitesseCourante = vitesse;
 	}

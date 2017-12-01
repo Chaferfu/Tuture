@@ -61,8 +61,31 @@ public class Segment extends Route
 	
 	@Override
 	public void avancerVoitures(){
-		/*for(Voiture voiture : this.getlVoitures()){
-			
-		}*/
+		for(Voiture voiture : this.getLvoitures()){
+			if(voiture.getSens().equals(Sens.Un)){
+				int distanceRestante = this.getLongueur() - voiture.getPosition(); //Distance entre la voiture et la fin du segment
+				if(distanceRestante == 0){ // la voiture arrive sur la jointure 2
+					this.getLvoitures().remove(voiture);
+					voiture.setPosition(0);
+					System.out.println("On a avancé la voiture du pas de 1 :");
+					System.out.println("Elle est maintenant à la jonction" + this.getJonction2().getId());
+				}
+				else { // la voiture reste sur le segment
+					voiture.setPosition(voiture.getPosition()+1);
+				}
+			}
+			else if(voiture.getSens().equals(Sens.Deux)){
+				if(voiture.getSens().equals(Sens.Un)){
+					int distanceRestante = voiture.getPosition(); //Distance entre la voiture et la fin du segment
+					if(distanceRestante == 0){ // la voiture arrive sur la jointure 1
+						System.out.println("On a avancé la voiture du pas de 1 :");
+						System.out.println("Elle est maintenant à la jonction" + this.getJonction1().getId());
+					}
+					else { // la voiture reste sur le segment
+						voiture.setPosition(voiture.getPosition()-1);
+					}
+			}
+		}
+	}
 	}
 }

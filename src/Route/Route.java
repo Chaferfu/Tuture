@@ -18,15 +18,36 @@ public abstract class Route
 		this.id=id;
 	}
 
+	public int getLongueur() {
+		return longueur;
+	}
 
-	public ArrayList<Voiture> getlVoitures() {
+
+	public void setLongueur(int longueur) {
+		this.longueur = longueur;
+	}
+
+
+	public ArrayList<Voiture> getLvoitures() {
 		return lvoitures;
 	}
 
 
-	public void setlVoitures(ArrayList<Voiture> lvoitures) {
+	public void setLvoitures(ArrayList<Voiture> lvoitures) {
 		this.lvoitures = lvoitures;
 	}
+
+
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	
 
 	
 }
