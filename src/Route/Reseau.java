@@ -40,7 +40,19 @@ public class Reseau
 		segments.add(new Segment("Route Infinie Vers Le Vide Eternel Et Vers De Terre"));
 		
 		//liens segments
+		jonctions.get(0).joindre(segments.get(0)); 
+		jonctions.get(0).joindre(segments.get(5)); 
 		
+		jonctions.get(1).joindre(segments.get(0));
+		jonctions.get(1).joindre(segments.get(1));
+		
+		jonctions.get(2).joindre(segments.get(1));
+		jonctions.get(2).joindre(segments.get(2));
+		jonctions.get(2).joindre(segments.get(4));
+		
+		jonctions.get(3).joindre(segments.get(2));
+		jonctions.get(3).joindre(segments.get(2));
+		jonctions.get(2).joindre(segments.get(2));
 	}
 	public static void main(String[] args) 
 	{

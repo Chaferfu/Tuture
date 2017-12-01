@@ -2,6 +2,8 @@ package Route;
 
 import java.util.ArrayList;
 
+
+
 public class Segment extends Route 
 {
 	private Jonction jonction1;
