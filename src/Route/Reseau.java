@@ -19,7 +19,13 @@ public class Reseau
 	{
 		//TODO
 	}
-	
+	public void printJonctions()
+	{
+		for(Jonction j : jonctions)
+		{
+			j.printJonction();
+		}
+	}
 	public void testReseau()
 	{
 		
@@ -42,6 +48,7 @@ public class Reseau
 		//liens segments
 		jonctions.get(0).joindre(segments.get(0)); 
 		jonctions.get(0).joindre(segments.get(5)); 
+		jonctions.get(0).joindre(segments.get(4));
 		
 		jonctions.get(1).joindre(segments.get(0));
 		jonctions.get(1).joindre(segments.get(1));
@@ -51,12 +58,18 @@ public class Reseau
 		jonctions.get(2).joindre(segments.get(4));
 		
 		jonctions.get(3).joindre(segments.get(2));
-		jonctions.get(3).joindre(segments.get(2));
-		jonctions.get(2).joindre(segments.get(2));
+		jonctions.get(3).joindre(segments.get(3));
+		
+		jonctions.get(4).joindre(segments.get(6));
+		jonctions.get(4).joindre(segments.get(3));
+		jonctions.get(4).joindre(segments.get(5));
+
 	}
 	public static void main(String[] args) 
 	{
-		
+		Reseau r = new Reseau();
+		r.testReseau();
+		r.printJonctions();
 
 	}
 

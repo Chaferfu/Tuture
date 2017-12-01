@@ -11,6 +11,14 @@ public class Jonction extends Route
 	{
 		super(id);
 	}
+	public void printJonction()
+	{
+		System.out.println(this.getId()+" est attaché à :");
+		for(Segment s : segments)
+		{
+			System.out.println("\t- "+s.getId());
+		}
+	}
 	public void joindre(Segment s) 
 	{
 		
