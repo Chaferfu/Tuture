@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public abstract class Route 
 {
+	public static void intervalleTemps() {};
 	private int longueur;
 	private ArrayList<Voiture> voitures = new ArrayList<Voiture>();
 	

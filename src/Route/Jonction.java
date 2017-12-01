@@ -11,7 +11,7 @@ public class Jonction extends Route
 	
 	public Jonction() 
 	{
-		super();
+		super(); 
 	}
 
 	public void joindre(Segment s) 

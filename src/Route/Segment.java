@@ -70,6 +70,13 @@ public class Segment extends Route
 		this.jonction2 = jonction2;
 	}
 	
+	/**
+	 * 
+	 * @param capteur to add
+	 */
+	public void addCapteur(Capteur capteur) {	
+		this.capteurs.add(capteur);
+	}
 	
-	
+	public static void intervalleTemps(){}
 }
