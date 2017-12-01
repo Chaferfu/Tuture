@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public abstract class Route 
 {
-	public static void intervalleTemps() {};
-	private int longueur;
-	private ArrayList<Voiture> voitures = new ArrayList<Voiture>();
+	public void avancerVoitures() {};
+	protected int longueur;
+	protected ArrayList<Voiture> lvoitures = new ArrayList<Voiture>();
 	
 	
 	public Route() 
@@ -14,4 +14,15 @@ public abstract class Route
 		// TODO Auto-generated constructor stub
 	}
 
+
+	public ArrayList<Voiture> getlVoitures() {
+		return lvoitures;
+	}
+
+
+	public void setlVoitures(ArrayList<Voiture> lvoitures) {
+		this.lvoitures = lvoitures;
+	}
+
+	
 }

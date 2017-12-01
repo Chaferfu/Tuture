@@ -78,5 +78,10 @@ public class Segment extends Route
 		this.capteurs.add(capteur);
 	}
 	
-	public static void intervalleTemps(){}
+	@Override
+	public void avancerVoitures(){
+		for(Voiture voiture : this.getlVoitures()){
+			
+		}
+	}
 }
