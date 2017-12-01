@@ -9,11 +9,10 @@ public class Jonction extends Route
 	
 	private ElementDeRegulation elementderegulation;
 	
-	public Jonction() 
+	public Jonction(String id) 
 	{
-		super();
+		super(id);
 	}
-
 	public void joindre(Segment s) 
 	{
 		segments.add(s);
@@ -27,7 +26,7 @@ public class Jonction extends Route
 		}
 		else
 		{
-			System.out.println("Erreur : le segment est déja collé à " +  s.getJonction1().toString() + " et "  + s.getJonction2().toString());
+			System.out.println("Erreur : le segment est deja colle a� " +  s.getJonction1().toString() + " et "  + s.getJonction2().toString());
 		}
 	}
 }

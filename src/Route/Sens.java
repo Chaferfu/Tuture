@@ -2,6 +2,6 @@ package Route;
 
 public enum Sens 
 {
-	Gauche,
-	Droite,
+	Un,
+	Deux,
 }

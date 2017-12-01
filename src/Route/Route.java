@@ -6,11 +6,11 @@ public abstract class Route
 {
 	private int longueur;
 	private ArrayList<Voiture> voitures = new ArrayList<Voiture>();
+	private String id;
 	
-	
-	public Route() 
+	public Route(String id) 
 	{
-		// TODO Auto-generated constructor stub
+		this.id=id;
 	}
 
 }
