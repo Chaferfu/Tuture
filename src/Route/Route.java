@@ -4,9 +4,6 @@ import java.util.ArrayList;
 
 public abstract class Route 
 {
-
-	
-
 	public void avancerVoitures() {};
 	private int longueur;
 	private ArrayList<Voiture> lvoitures = new ArrayList<Voiture>();
