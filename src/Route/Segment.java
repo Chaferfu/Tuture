@@ -16,7 +16,22 @@ public class Segment extends Route
 		super(id);
 	}
 	
-	
+	public Sens sensVersJonction(Jonction jonction)
+	{
+		if(jonction == jonction1)
+		{
+			return Sens.Un;
+		}
+		else if(jonction == jonction2)
+		{
+			return Sens.Deux;
+		}
+		else
+		{	
+			System.out.println("Attention le segment "+this.getId()+" n'est pas relié à la jonction "+jonction.getId());
+			return null;
+		}
+	}
 
 	public ArrayList<Semaphore> getSemaphores() {
 		return semaphores;

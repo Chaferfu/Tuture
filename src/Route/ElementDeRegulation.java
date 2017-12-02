@@ -15,9 +15,14 @@ public abstract class ElementDeRegulation
 	public ElementDeRegulation(Jonction jonction) 
 	{
 		this.jonction = jonction;
+		
 		for(Segment s: jonction.getSegments())
 		{
-			
+			Sens temp = s.sensVersJonction(jonction);
+			for(Semaphore f : s.getSemaphores())
+			{
+				//TODO
+			}
 		}
 	}
 	
