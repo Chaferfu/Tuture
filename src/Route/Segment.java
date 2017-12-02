@@ -9,12 +9,27 @@ public class Segment extends Route
 	private Jonction jonction1;
 	private Jonction jonction2;
 	private ArrayList<Capteur> capteurs = new ArrayList<Capteur>();
+	private ArrayList<Semaphore> semaphores = new ArrayList<Semaphore>();
 	
 	public Segment(String id) 
 	{
 		super(id);
 	}
 	
+	
+
+	public ArrayList<Semaphore> getSemaphores() {
+		return semaphores;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return super.toString() + " [jonction1=" + jonction1.getId() + ", jonction2=" + jonction2.getId() + ", capteurs=" + capteurs + ", semaphores :" + semaphores + "]";
+	}
+
+
 
 	/**
 	 * @return the capteurs

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Reseau 
 {
-
+	public static int vitesseMaxGlobale = 100;
 	ArrayList<Segment> segments = new ArrayList<Segment>();
 	ArrayList<Jonction> jonctions = new ArrayList<Jonction>();
 	
@@ -70,6 +70,7 @@ public class Reseau
 		Reseau r = new Reseau();
 		r.testReseau();
 		r.printJonctions();
+		System.out.println(r.segments.get(2).toString());
 
 	}
 

@@ -3,7 +3,6 @@ package Route;
 public abstract class Semaphore 
 {
 	
-	private ElementDeRegulation elementDeRegulation;
 	private Segment segment;
 	private Sens sens;
 	
@@ -17,9 +16,8 @@ public abstract class Semaphore
 		//redefinition dans chacune des sous-classes ? 
 	}
 
-	public Semaphore(ElementDeRegulation e, Segment s, Sens sens) 
+	public Semaphore(Segment s, Sens sens) 
 	{
-		elementDeRegulation = e;
 		segment = s;
 		this.sens = sens;
 	}
