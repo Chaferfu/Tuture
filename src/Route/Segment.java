@@ -44,6 +44,23 @@ public class Segment extends Route
 		}
 		semaphores.add(s);
 	}
+	
+	public Sens sensVersJonction(Jonction jonction)
+	{
+		if(jonction == jonction1)
+		{
+			return Sens.Deux;
+		}
+		else if(jonction == jonction2)
+		{
+			return Sens.Un;
+		}
+		else
+		{	
+			System.out.println("Attention le segment "+this.getId()+" n'est pas relié à la jonction "+jonction.getId());
+			return null;
+		}
+	}
 
 	public ArrayList<Semaphore> getSemaphores() {
 		return semaphores;
