@@ -37,4 +37,11 @@ public class Jonction extends Route
 			System.out.println("Erreur : le segment est deja colle a  " +  s.getJonction1().toString() + " et "  + s.getJonction2().toString());
 		}
 	}
+	/**
+	 * @return the segments
+	 */
+	public ArrayList<Segment> getSegments() {
+		return segments;
+	}
+	
 }

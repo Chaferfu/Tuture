@@ -2,15 +2,29 @@ package Route;
 
 import java.util.ArrayList;
 
-public class ElementDeRegulation 
+public abstract class ElementDeRegulation 
 {
 	private ArrayList<Capteur> capteurs = new ArrayList<Capteur>();
 	private Jonction jonction;
-	private ArrayList<Semaphore> semaphores = new ArrayList<Semaphore>();
+	private ArrayList<Feu> feux = new ArrayList<Feu>();
 	
+	/**
+	 * Constructeur à appeler après création des feux sur les segments attaché à une jonction.
+	 * @param jonction
+	 */
 	public ElementDeRegulation(Jonction jonction) 
 	{
 		this.jonction = jonction;
+		for(Segment s: jonction.getSegments())
+		{
+			
+		}
 	}
+	
+	public void updateFeuxCarrefour()
+	{
+		
+	}
+
 
 }
