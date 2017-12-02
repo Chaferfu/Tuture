@@ -11,10 +11,10 @@ public abstract class Feu extends Semaphore
 		//TODO
 	}
 	
-	public Feu(ElementDeRegulation elementDeRegulation,Segment segment,  Sens sens) 
+	public Feu(Segment segment,  Sens sens) 
 	{
 
-		super(elementDeRegulation, segment, sens);
+		super(segment, sens);
 	}
 
 }

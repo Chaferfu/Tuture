@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Jonction extends Route 
 {
 	private ArrayList<Segment> segments = new ArrayList<Segment>();
-	private ElementDeRegulation elementderegulation;
+	private ElementDeRegulation elementDeRegulation;
 	
 	public Jonction(String id) 
 	{
@@ -36,5 +36,10 @@ public class Jonction extends Route
 		{
 			System.out.println("Erreur : le segment est deja colle a  " +  s.getJonction1().toString() + " et "  + s.getJonction2().toString());
 		}
+	}
+	@Override
+	public void avancerVoitures() {
+		// TODO Auto-generated method stub
+		
 	}
 }

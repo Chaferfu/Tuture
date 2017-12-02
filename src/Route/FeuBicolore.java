@@ -9,9 +9,9 @@ public class FeuBicolore extends Feu
 		//TODO
 	}
 	
-	public FeuBicolore(ElementDeRegulation elementDeRegulation,Segment segment, Sens sens) 
+	public FeuBicolore(Segment segment, Sens sens) 
 	{
-		super(elementDeRegulation, segment, sens);
+		super(segment, sens);
 		this.couleurFeu = CouleurFeu.Vert;
 	}
 

@@ -11,13 +11,10 @@ public class Limiteur extends Semaphore
 	}
 	
 
-	public Limiteur(int l,ElementDeRegulation elementDeRegulation,Segment segment,Sens sens) 
+	public Limiteur(int l,Segment segment,Sens sens) 
 	{
-		super(elementDeRegulation, segment, sens);
-		this.limite = limite;
-		
+		super(segment, sens);
 		limite = l;
-
 	}
 
 }

@@ -8,9 +8,9 @@ public class Radar extends Semaphore {
 		//TODO
 	}
 	
-	public Radar(ElementDeRegulation e, Segment s, Sens sens) 
+	public Radar(Segment s, Sens sens) 
 	{
-		super(e, s, sens);
+		super(s, sens);
 	}
 
 }

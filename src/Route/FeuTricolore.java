@@ -9,8 +9,8 @@ public class FeuTricolore extends Feu {
 	}
 
 
-	public FeuTricolore(ElementDeRegulation elementDeRegulation,Segment segment, Sens sens) {
-		super(elementDeRegulation, segment, sens);
+	public FeuTricolore(Segment segment, Sens sens) {
+		super(segment, sens);
 		this.couleurFeu = CouleurFeu.Vert;
 
 	}

@@ -4,12 +4,18 @@ import java.util.ArrayList;
 
 public abstract class Route 
 {
-	public void avancerVoitures() {};
+	private String id;
 	private int longueur;
 	private ArrayList<Voiture> lvoitures = new ArrayList<Voiture>();
-	private String id;
 
+	public abstract void avancerVoitures();
 	
+	
+	@Override
+	public String toString() {
+		return id + " : longueur=" + longueur + ", contient les voitures :" + lvoitures + " ";
+	}
+
 	public Route(String id) 
 	{
 		this.id=id;
