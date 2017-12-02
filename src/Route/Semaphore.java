@@ -21,4 +21,25 @@ public abstract class Semaphore
 		segment = s;
 		this.sens = sens;
 	}
+	
+	
+	
+	public Sens getSens() {
+		return sens;
+	}
+
+	public void setSens(Sens sens) {
+		this.sens = sens;
+	}
+
+	public Semaphore(Sens sens) 
+	{
+		this.sens = sens;
+	}
+
+	public void setSegment(Segment segment) {
+		this.segment = segment;
+	}
+	
+	
 }

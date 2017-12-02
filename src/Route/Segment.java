@@ -7,7 +7,9 @@ import java.util.ArrayList;
 public class Segment extends Route 
 {
 	private Jonction jonction1;
+	private Feu feu1;
 	private Jonction jonction2;
+	private Feu feu2;
 	private ArrayList<Capteur> capteurs = new ArrayList<Capteur>();
 	private ArrayList<Semaphore> semaphores = new ArrayList<Semaphore>();
 	
@@ -16,13 +18,54 @@ public class Segment extends Route
 		super(id);
 	}
 	
+	public void ajouterSemaphore(Semaphore s)
+	{
+		s.setSegment(this);
+		semaphores.add(s);
+	}
 	
+	/*
+	 * ajoute un semaphore au niveau de la jonction donnée
+	 *  (le semaphore s'applique aux voitures allant dans le sens qui va VERS cette jonction
+	 */
+	public void ajouterSemaphore(Semaphore s, Jonction j)
+	{
+		s.setSegment(this);
+		if (this.jonction1 == j)
+		{
+			s.setSens(Sens.Deux);
+		}
+		else if (this.jonction2 == j)
+		{
+			s.setSens(Sens.Un);
+		}
+		else {
+			System.out.println("LA JONCTION SPECIFIEE NEST PAS COLLEE AU SEGMENT ERREUR");
+		}
+		semaphores.add(s);
+	}
 
 	public ArrayList<Semaphore> getSemaphores() {
 		return semaphores;
 	}
 
 
+
+	public Feu getFeu1() {
+		return feu1;
+	}
+
+	public void setFeu1(Feu feu1) {
+		this.feu1 = feu1;
+	}
+
+	public Feu getFeu2() {
+		return feu2;
+	}
+
+	public void setFeu2(Feu feu2) {
+		this.feu2 = feu2;
+	}
 
 	@Override
 	public String toString() {

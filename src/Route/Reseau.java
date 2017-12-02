@@ -38,7 +38,9 @@ public class Reseau
 		
 		//création des segments
 		segments.add(new Segment("Coulée Verte"));
-		segments.add(new Segment("Route Collin Mamet"));
+		segments.get(0).ajouterSemaphore(new Limiteur(50,Sens.Un));
+		
+		segments.add(new Segment("Rue Collin Mamet"));
 		segments.add(new Segment("Boulevard mystique"));
 		segments.add(new Segment("Rue Chaferfu Lancier"));
 		segments.add(new Segment("Boulevard De La Voie Lactée"));
