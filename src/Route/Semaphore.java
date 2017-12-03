@@ -10,7 +10,7 @@ public abstract class Semaphore
 	 * fonction qui détermine la vitesse des voitures sur un segment 
 	 * en fonction du sens du sémaphore et du type de semaphore.
 	 */
-
+	
 	public Semaphore(Segment s, Sens sens) 
 	{
 		segment = s;
