@@ -1,6 +1,7 @@
 package Route;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Jonction extends Route 
 {
@@ -19,18 +20,42 @@ public class Jonction extends Route
 			System.out.println("\t- "+s.getId());
 		}
 	}
+	
+	/**
+	 * joins le segment a la jonction et met un feu aleatoire sur le segment coté jonction
+	 * @param s
+	 */
 	public void joindre(Segment s) 
 	{
+		Random rand = new Random();
 		
 		if (s.getJonction1() == null)
 		{
 			segments.add(s);
 			s.setJonction1(this);
+			if (rand.nextBoolean())
+			{
+				s.setFeu1(new FeuTricolore(s, Sens.Deux));
+
+			}
+			else 
+			{
+				s.setFeu1(new FeuBicolore(s, Sens.Deux));
+			}
 		}
 		else if (s.getJonction2() == null)
 		{
 			segments.add(s);
 			s.setJonction2(this);
+			if (rand.nextBoolean())
+			{
+				s.setFeu2(new FeuTricolore(s, Sens.Un));
+
+			}
+			else 
+			{
+				s.setFeu2(new FeuBicolore(s, Sens.Un));
+			}
 		}
 		else
 		{

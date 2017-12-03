@@ -2,10 +2,12 @@ package Route;
 
 public class Radar extends Semaphore {
 
+	private int limite;
 	
-	public Radar(Segment s, Sens sens) 
+	public Radar(int l, Sens sens) 
 	{
-		super(s, sens);
+		super(sens);
+		limite = l;
 	}
 	
 	@Override

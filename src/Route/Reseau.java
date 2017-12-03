@@ -38,14 +38,20 @@ public class Reseau
 		
 		//création des segments
 		segments.add(new Segment("Coulée Verte"));
-		segments.get(0).ajouterSemaphore(new Limiteur(50,Sens.Un));
-		
 		segments.add(new Segment("Rue Collin Mamet"));
 		segments.add(new Segment("Boulevard mystique"));
 		segments.add(new Segment("Rue Chaferfu Lancier"));
 		segments.add(new Segment("Boulevard De La Voie Lactée"));
 		segments.add(new Segment("Rue De <Attention Radar>"));
 		segments.add(new Segment("Route Infinie Vers Le Vide Eternel Et Vers De Terre"));
+		
+		segments.get(0).ajouterSemaphore(new Limiteur(50,Sens.Un));
+		segments.get(2).ajouterSemaphore(new Limiteur(60,Sens.Un));
+		segments.get(4).ajouterSemaphore(new Limiteur(70,Sens.Un));
+		segments.get(6).ajouterSemaphore(new Limiteur(80,Sens.Un));
+		segments.get(5).ajouterSemaphore(new Radar(50,Sens.Un));
+
+
 		
 		//liens segments
 		jonctions.get(0).joindre(segments.get(0)); 
