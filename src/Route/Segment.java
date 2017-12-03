@@ -31,17 +31,7 @@ public class Segment extends Route
 	public void ajouterSemaphore(Semaphore s, Jonction j)
 	{
 		s.setSegment(this);
-		if (this.jonction1 == j)
-		{
-			s.setSens(Sens.Deux);
-		}
-		else if (this.jonction2 == j)
-		{
-			s.setSens(Sens.Un);
-		}
-		else {
-			System.out.println("LA JONCTION SPECIFIEE NEST PAS COLLEE AU SEGMENT ERREUR");
-		}
+		s.setSens(sensVersJonction(j));
 		semaphores.add(s);
 	}
 	
