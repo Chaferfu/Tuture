@@ -8,7 +8,9 @@ public class Voiture
 	private int position;  //Position sur route actuelle;
 	private Sens sens;
 	private int vitesseCourante;
+	private int vitesseMax;
 	private Route routeCourante;
+	private boolean aAvance;
 	
 	
 
@@ -74,11 +76,43 @@ public class Voiture
 	public Route getRouteCourante() {
 		return routeCourante;
 	}
+	
+	
+
+	public int getVitesseMax() {
+		return vitesseMax;
+	}
+
+	public void setVitesseMax(int vitesseMax) {
+		this.vitesseMax = vitesseMax;
+	}
+
+	public boolean isaAvance() {
+		return aAvance;
+	}
+
+	public void setaAvance(boolean aAvance) {
+		this.aAvance = aAvance;
+	}
 
 	public void setRouteCourante(Route routeCourante) {
 		this.routeCourante = routeCourante;
 	}
 
+	public void avancerVoiture() {
+		if(this.getSens().equals(Sens.Un)){
+			this.setVitesseCourante(min(this.getVitesseMax(),((Segment)(this.getRouteCourante())).getvMaxSens1()));
+		}
+		else {
+			this.setVitesseCourante(min(this.getVitesseMax(),((Segment)(this.getRouteCourante())).getvMaxSens2()));
+		}
+		int positionMaxAtteignable = this.position + this.vitesseCourante;		
+	}
 	
 
+	public int min(int i1, int i2) {
+		if (i1 <= i2) return i1;
+		else return i2;
+	}
+	
 }

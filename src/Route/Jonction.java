@@ -13,7 +13,7 @@ public class Jonction extends Route
 	}
 	public void printJonction()
 	{
-		System.out.println(this.getId()+" est attaché à :");
+		System.out.println(this.getId()+" est attachï¿½ ï¿½ :");
 		for(Segment s : segments)
 		{
 			System.out.println("\t- "+s.getId());
@@ -34,7 +34,7 @@ public class Jonction extends Route
 		}
 		else
 		{
-			System.out.println("Erreur : le segment est deja colle a  " +  s.getJonction1().toString() + " et "  + s.getJonction2().toString());
+			System.out.println("Erreur : le segment est deja colle aï¿½ " +  s.getJonction1().toString() + " et "  + s.getJonction2().toString());
 		}
 	}
 
@@ -45,11 +45,7 @@ public class Jonction extends Route
 		return segments;
 	}
 	
-
 	@Override
-	public void avancerVoitures() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void updatelimiteVitesse() {}
 
 }
