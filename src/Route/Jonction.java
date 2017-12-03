@@ -22,7 +22,7 @@ public class Jonction extends Route
 	}
 	
 	/**
-	 * joins le segment a la jonction et met un feu aleatoire sur le segment coté jonction
+	 * joins le segment ga la jonction et met un feu aleatoire sur le segment coté jonction
 	 * @param s
 	 */
 	public void joindre(Segment s) 
