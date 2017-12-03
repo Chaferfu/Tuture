@@ -10,6 +10,8 @@ public class Segment extends Route
 	private Feu feu1;
 	private Jonction jonction2;
 	private Feu feu2;
+	private int vMaxSens1;
+	private int vMaxSens2;
 	private ArrayList<Capteur> capteurs = new ArrayList<Capteur>();
 	private ArrayList<Semaphore> semaphores = new ArrayList<Semaphore>();
 	
@@ -25,7 +27,7 @@ public class Segment extends Route
 	}
 	
 	/*
-	 * ajoute un semaphore au niveau de la jonction donnée
+	 * ajoute un semaphore au niveau de la jonction donnï¿½e
 	 *  (le semaphore s'applique aux voitures allant dans le sens qui va VERS cette jonction
 	 */
 	public void ajouterSemaphore(Semaphore s, Jonction j)
@@ -47,7 +49,7 @@ public class Segment extends Route
 		}
 		else
 		{	
-			System.out.println("Attention le segment "+this.getId()+" n'est pas relié à la jonction "+jonction.getId());
+			System.out.println("Attention le segment "+this.getId()+" n'est pas reliï¿½ ï¿½ la jonction "+jonction.getId());
 			return null;
 		}
 	}
@@ -124,7 +126,7 @@ public class Segment extends Route
 		this.capteurs.add(capteur);
 	}
 	
-	@Override
+	/*@Override
 	public void avancerVoitures(){
 		for(Voiture voiture : this.getLvoitures()){
 			if(voiture.getSens().equals(Sens.Un)){
@@ -152,5 +154,44 @@ public class Segment extends Route
 			}
 		}
 	}
+	}*/
+	
+	public int getvMaxSens1() {
+		return vMaxSens1;
 	}
-}
+
+	public void setvMaxSens1(int vMaxSens1) {
+		this.vMaxSens1 = vMaxSens1;
+	}
+
+	public int getvMaxSens2() {
+		return vMaxSens2;
+	}
+
+	public void setvMaxSens2(int vMaxSens2) {
+		this.vMaxSens2 = vMaxSens2;
+	}
+
+	public void setCapteurs(ArrayList<Capteur> capteurs) {
+		this.capteurs = capteurs;
+	}
+
+	public void setSemaphores(ArrayList<Semaphore> semaphores) {
+		this.semaphores = semaphores;
+	}
+	
+	@Override
+	public void updatelimiteVitesse(){
+		this.setvMaxSens1(Reseau.vitesseMaxGlobale);
+		this.setvMaxSens2(Reseau.vitesseMaxGlobale);
+		for(Semaphore s : semaphores){
+			s.limiterVitesse();
+		}
+		this.feu1.limiterVitesse();
+		this.feu2.limiterVitesse();
+	}
+
+	}
+
+	
+

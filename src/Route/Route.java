@@ -8,7 +8,7 @@ public abstract class Route
 	private int longueur;
 	private ArrayList<Voiture> lvoitures = new ArrayList<Voiture>();
 
-	public abstract void avancerVoitures();
+	public void updatelimiteVitesse(){}
 	
 	
 	@Override

@@ -6,10 +6,7 @@ public abstract class Feu extends Semaphore
 	protected CouleurFeu couleurFeu;
 	
 	@Override
-	public void limiteVitesse()
-	{
-		//TODO
-	}
+	public void limiterVitesse() {}
 	
 	public Feu(Segment segment,  Sens sens) 
 	{
