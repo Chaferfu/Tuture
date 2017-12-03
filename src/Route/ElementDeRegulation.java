@@ -21,11 +21,10 @@ public abstract class ElementDeRegulation
 			Sens temp = s.sensVersJonction(jonction);
 			for(Semaphore f : s.getSemaphores())
 			{
-				//TODO
+				
 			}
 		}
 	}
-	
 	public void updateFeuxCarrefour()
 	{
 		
