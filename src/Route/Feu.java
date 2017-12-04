@@ -14,4 +14,13 @@ public abstract class Feu extends Semaphore
 		super(segment, sens);
 	}
 
+	public CouleurFeu getCouleurFeu() {
+		return couleurFeu;
+	}
+
+	public void setCouleurFeu(CouleurFeu couleurFeu) {
+		this.couleurFeu = couleurFeu;
+	}
+	
+
 }

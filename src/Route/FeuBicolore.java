@@ -30,6 +30,7 @@ public class FeuBicolore extends Feu
 			this.getSegment().setvMaxSens2(0); 
 		}
 	}
+	
 
 
 }

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public abstract class ElementDeRegulation 
 {
-	private ArrayList<Capteur> capteurs = new ArrayList<Capteur>();
-	private Jonction jonction;
-	private ArrayList<Feu> feux = new ArrayList<Feu>();
+	protected ArrayList<Capteur> capteurs = new ArrayList<Capteur>();
+	protected Jonction jonction;
+	protected ArrayList<Feu> feux = new ArrayList<Feu>();
 	
 	/**
 	 * Constructeur à appeler après création des feux sur les segments attaché à une jonction.
@@ -19,13 +19,17 @@ public abstract class ElementDeRegulation
 		for(Segment s: jonction.getSegments())
 		{
 			Sens temp = s.sensVersJonction(jonction);
-			for(Semaphore f : s.getSemaphores())
+			if(temp.equals(Sens.Un))
 			{
-				
+				feux.add(s.getFeu1());
+			}
+			else
+			{
+				feux.add(s.getFeu2());
 			}
 		}
 	}
-	public void updateFeuxCarrefour()
+	public void updateFeuCarrefour()
 	{
 		
 	}
