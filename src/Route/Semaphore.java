@@ -43,7 +43,16 @@ public abstract class Semaphore
 
 
 
-	public void limiterVitesse() {}
+	abstract public void limiterVitesse();
+
+
+
+	@Override
+	public String toString() {
+		return "Semaphore " + getClass() + " [segment=" + segment.getId()+ ", sens=" + sens + "]";
+	}
+	
+	
 	
 	
 }

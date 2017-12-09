@@ -21,6 +21,12 @@ public abstract class Feu extends Semaphore
 	public void setCouleurFeu(CouleurFeu couleurFeu) {
 		this.couleurFeu = couleurFeu;
 	}
+
+	@Override
+	public String toString() {
+		return "Feu [couleurFeu=" + couleurFeu + ", type=" + getClass() + "]";
+	}
+	
 	
 
 }

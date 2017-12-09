@@ -10,7 +10,6 @@ public class Voiture
 	private int vitesseCourante;
 	private int vitesseMax;
 	private Route routeCourante;
-	private boolean aAvance;
 	
 	
 
@@ -31,6 +30,14 @@ public class Voiture
 		}
 		this.sens=sens;
 		vitesseCourante = vitesse;
+	}
+
+	
+	@Override
+	public String toString() {
+		return "Voiture [id=" + id + ", position=" + position + ", sens=" + sens + ", vitesseCourante="
+				+ vitesseCourante + ", vitesseMax=" + vitesseMax + ", routeCourante=" + routeCourante + ", aAvance="
+				+ "]";
 	}
 
 	public static int getCompteur() {
@@ -87,13 +94,6 @@ public class Voiture
 		this.vitesseMax = vitesseMax;
 	}
 
-	public boolean isaAvance() {
-		return aAvance;
-	}
-
-	public void setaAvance(boolean aAvance) {
-		this.aAvance = aAvance;
-	}
 
 	public void setRouteCourante(Route routeCourante) {
 		this.routeCourante = routeCourante;

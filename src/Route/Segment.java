@@ -150,7 +150,7 @@ public class Segment extends Route
 		this.semaphores = semaphores;
 	}
 	
-	@Override
+	
 	public void updatelimiteVitesse(){
 		this.setvMaxSens1(Reseau.vitesseMaxGlobale);
 		this.setvMaxSens2(Reseau.vitesseMaxGlobale);

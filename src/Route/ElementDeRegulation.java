@@ -33,6 +33,13 @@ public abstract class ElementDeRegulation
 	{
 		
 	}
+	@Override
+	public String toString() {
+		return "ElementDeRegulation " + getClass() + " [capteurs=" + capteurs + ", jonction=" + jonction + ", feux=" + feux + "]";
+	}
+	
+	
+	
 
 
 }

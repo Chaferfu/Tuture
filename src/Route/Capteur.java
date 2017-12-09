@@ -15,4 +15,14 @@ public abstract class Capteur
 		this.sens = S;
 		position=p;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Capteur " +  getClass() + " [segment=" + segment + ", sens=" + sens + ", position=" + position  + "]";
+	}
+	
+	
+	
+	
 }

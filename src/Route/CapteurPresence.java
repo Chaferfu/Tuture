@@ -6,5 +6,7 @@ public class CapteurPresence extends Capteur
 	{
 		super(s, e, S, p);
 	}
+	
+	
 
 }

@@ -70,7 +70,12 @@ public class Jonction extends Route
 		return segments;
 	}
 	
+
 	@Override
-	public void updatelimiteVitesse() {}
+	public String toString() {
+		return "Jonction [segments=" + segments + ", elementDeRegulation=" + elementDeRegulation + "]";
+	}
+	
+	
 
 }
