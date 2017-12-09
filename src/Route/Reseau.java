@@ -26,7 +26,7 @@ public class Reseau
 		{
 			if(Math.random()<1)
 			{
-				ElementDeRegulation e = new ElementDeRegulationSimpliste(j, 2);
+				ElementDeRegulation e = new ElementDeRegulationSimpliste(j);
 				j.setElementDeRegulation(e);
 			}
 			else

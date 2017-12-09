@@ -28,6 +28,4 @@ public abstract class Feu extends Semaphore
 	
 	public abstract void updateCouleur();
 
-	
-
 }
