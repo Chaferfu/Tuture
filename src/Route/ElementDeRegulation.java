@@ -46,10 +46,9 @@ public abstract class ElementDeRegulation
 		feux.get(0).setCouleurFeu(CouleurFeu.Vert);
 
 	}
-	public void updateFeuCarrefour()
-	{
-		
-	}
+	abstract public void updateFeuxCarrefour();
+
+	
 	@Override
 	public String toString() {
 		return "ElementDeRegulation " + getClass() + " [capteurs=" + capteurs + ", jonction=" + jonction + ", feux=" + feux + "]";

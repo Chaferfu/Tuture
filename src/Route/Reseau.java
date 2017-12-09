@@ -7,6 +7,7 @@ public class Reseau
 	public static int vitesseMaxGlobale = 100;
 	ArrayList<Segment> segments = new ArrayList<Segment>();
 	ArrayList<Jonction> jonctions = new ArrayList<Jonction>();
+	ArrayList<Voiture> voitures = new ArrayList<Voiture>();
 	
 	public Reseau() 
 	{
@@ -19,7 +20,28 @@ public class Reseau
 	public void prochaineEtape()
 	{
 		//TODO
+		//update feux
+		for (Jonction j : jonctions)
+		{
+			j.getElementDeRegulation().updateFeuxCarrefour();
+		}
+		
+		
+		//update vitesse max courante sur chacun des segments
+		for (Segment s : segments)
+		{
+			s.updateLimiteVitesse();
+		}
+		
+		//les voitures avancent
+		for (Voiture v : voitures)
+		{
+			v.avancerVoiture();
+		}
+		
+	
 	}
+	
 	public void creerElementDeRegulation()
 	{
 		for(Jonction j : jonctions)

@@ -151,17 +151,19 @@ public class Segment extends Route
 	}
 	
 	
-	public void updatelimiteVitesse(){
+	public void updateLimiteVitesse()
+	{
 		this.setvMaxSens1(Reseau.vitesseMaxGlobale);
 		this.setvMaxSens2(Reseau.vitesseMaxGlobale);
-		for(Semaphore s : semaphores){
+		for(Semaphore s : semaphores)
+		{
 			s.limiterVitesse();
 		}
 		this.feu1.limiterVitesse();
 		this.feu2.limiterVitesse();
 	}
 
-	}
+}
 
 	
 

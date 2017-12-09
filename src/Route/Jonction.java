@@ -77,7 +77,11 @@ public class Jonction extends Route
 		return segments;
 	}
 	
+	
 
+	public ElementDeRegulation getElementDeRegulation() {
+		return elementDeRegulation;
+	}
 	@Override
 	public String toString() {
 		return "Jonction [segments=" + segments + ", elementDeRegulation=" + elementDeRegulation + "]";

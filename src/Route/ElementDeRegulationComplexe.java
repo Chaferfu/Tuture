@@ -8,4 +8,10 @@ public class ElementDeRegulationComplexe extends ElementDeRegulation
 		super(jonction);
 	}
 
+	@Override
+	public void updateFeuxCarrefour() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

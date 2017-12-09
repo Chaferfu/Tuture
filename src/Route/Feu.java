@@ -25,7 +25,9 @@ public abstract class Feu extends Semaphore
 		return "Feu [couleurFeu=" + couleurFeu + ", type=" + getClass() + "]";
 	}
 	
-	
+	/**
+	 * Passe a la prochaine couleur ( rouge > vert >orange > rouge etc ou  rouge > vert > rouge ... pour les bicolores)
+	 */
 	public abstract void updateCouleur();
 
 	
