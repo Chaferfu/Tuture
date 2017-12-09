@@ -53,7 +53,7 @@ public class Reseau
 			}
 			else
 			{
-				//TODO création Element de regulation compliqué
+				//TODO création Element de regulation compliqués
 			}
 		}
 	}
