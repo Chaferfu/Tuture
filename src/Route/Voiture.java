@@ -111,7 +111,12 @@ public class Voiture
 				if(this.getVitesseCourante()>((Segment)this.getRouteCourante()).getvMaxSens1()){
 					this.setVitesseCourante(((Segment)this.getRouteCourante()).getvMaxSens1());		
 				}
-				this.setPosition(this.getVitesseCourante()-1);		
+				if(this.getVitesseCourante() < ((Segment) this.getRouteCourante()).getLongueur()){
+					this.setPosition(this.getVitesseCourante()-1);	
+				}
+				else {
+					avancerVoiture();
+				}
 			}
 			else{
 				this.setPosition(positionMaxAtteignable);		
@@ -128,7 +133,12 @@ public class Voiture
 				if(this.getVitesseCourante()>((Segment)this.getRouteCourante()).getvMaxSens1()){
 					this.setVitesseCourante(((Segment)this.getRouteCourante()).getvMaxSens1());		
 				}
-				this.setPosition(this.getVitesseCourante()-1);		
+				if(this.getVitesseCourante() < ((Segment) this.getRouteCourante()).getLongueur()){
+					this.setPosition(this.getVitesseCourante()-1);	
+				}
+				else {
+					avancerVoiture();
+				}
 			}
 			else{
 				this.setPosition(positionMaxAtteignable);		
