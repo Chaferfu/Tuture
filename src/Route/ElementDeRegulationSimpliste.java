@@ -8,7 +8,7 @@ public class ElementDeRegulationSimpliste extends ElementDeRegulation
 	}
 	
 	/**
-	 * Très simpliste, met un Feu vert aléatoire 
+	 * 
 	 */
 	public void updateFeuxCarrefour()
 	{
