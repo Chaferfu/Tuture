@@ -8,7 +8,8 @@ public class Reseau
 	ArrayList<Segment> segments = new ArrayList<Segment>();
 	ArrayList<Jonction> jonctions = new ArrayList<Jonction>();
 	
-	public Reseau() {
+	public Reseau() 
+	{
 		// TODO Auto-generated constructor stub
 	}
 
@@ -18,6 +19,21 @@ public class Reseau
 	public void prochaineEtape()
 	{
 		//TODO
+	}
+	public void creerElementDeRegulation()
+	{
+		for(Jonction j : jonctions)
+		{
+			if(Math.random()<1)
+			{
+				ElementDeRegulation e = new ElementDeRegulationSimpliste(j, 2);
+				j.setElementDeRegulation(e);
+			}
+			else
+			{
+				//TODO création Element de regulation compliqué
+			}
+		}
 	}
 	public void printJonctions()
 	{
@@ -71,6 +87,8 @@ public class Reseau
 		jonctions.get(4).joindre(segments.get(6));
 		jonctions.get(4).joindre(segments.get(3));
 		jonctions.get(4).joindre(segments.get(5));
+		
+		creerElementDeRegulation();
 
 	}
 	public static void main(String[] args) 

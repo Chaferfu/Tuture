@@ -23,6 +23,19 @@ public abstract class Capteur
 	}
 	
 	
-	
+	/**
+	 * @return the sens
+	 */
+	public Sens getSens() {
+		return sens;
+	}
+
+
+	/**
+	 * @param sens the sens to set
+	 */
+	public void setSens(Sens sens) {
+		this.sens = sens;
+	}
 	
 }
