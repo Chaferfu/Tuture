@@ -31,6 +31,17 @@ public class FeuBicolore extends Feu
 		}
 	}
 	
+	public void updateCouleur()
+	{
+		if(couleurFeu.equals(CouleurFeu.Rouge))
+		{
+			couleurFeu = CouleurFeu.Vert;
+		}
+		else
+		{
+			couleurFeu = CouleurFeu.Rouge;
+		}
+	}
 
 
 }

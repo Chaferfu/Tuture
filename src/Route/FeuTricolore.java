@@ -36,6 +36,23 @@ public class FeuTricolore extends Feu {
 			this.getSegment().setvMaxSens2((int)this.getSegment().getvMaxSens2()/2);
 		}
 	}
+	
+	@Override
+	public void updateCouleur()
+	{
+		if(couleurFeu.equals(CouleurFeu.Rouge))
+		{
+			couleurFeu = CouleurFeu.Vert;
+		}
+		else if(couleurFeu.equals(CouleurFeu.Orange))
+		{
+			couleurFeu = CouleurFeu.Rouge;
+		}
+		else
+		{
+			couleurFeu = CouleurFeu.Orange;
+		}
+	}
 
 
 }

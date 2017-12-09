@@ -27,7 +27,24 @@ public abstract class ElementDeRegulation
 			{
 				feux.add(s.getFeu2());
 			}
+			for(Capteur c : s.getCapteurs())
+			{
+				if(c.getSens().equals(temp))
+				{
+					capteurs.add(c);
+				}
+			}
 		}
+		initFeux();
+	}
+	public void initFeux()
+	{
+		for(Feu f : feux)
+		{
+			f.setCouleurFeu(CouleurFeu.Rouge);
+		}	
+		feux.get(0).setCouleurFeu(CouleurFeu.Vert);
+
 	}
 	public void updateFeuCarrefour()
 	{

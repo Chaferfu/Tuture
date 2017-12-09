@@ -2,7 +2,6 @@ package Route;
 
 public abstract class Feu extends Semaphore 
 {
-
 	protected CouleurFeu couleurFeu;
 	
 	@Override
@@ -10,7 +9,6 @@ public abstract class Feu extends Semaphore
 	
 	public Feu(Segment segment,  Sens sens) 
 	{
-
 		super(segment, sens);
 	}
 
@@ -21,6 +19,9 @@ public abstract class Feu extends Semaphore
 	public void setCouleurFeu(CouleurFeu couleurFeu) {
 		this.couleurFeu = couleurFeu;
 	}
+	
+	public abstract void updateCouleur();
+
 	
 
 }
