@@ -33,6 +33,11 @@ public class ElementDeRegulationSimpliste extends ElementDeRegulation
 					feux.get(0).updateCouleur();
 				}
 			}
+			else if(i+1 == feux.size())
+			{	
+				feux.get(0).updateCouleur();
+			}
+					
 		}
 	}
 
