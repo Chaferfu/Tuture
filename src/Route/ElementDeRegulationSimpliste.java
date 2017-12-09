@@ -2,12 +2,9 @@ package Route;
 
 public class ElementDeRegulationSimpliste extends ElementDeRegulation 
 {
-	private int tempsFeuVert;
-	
-	public ElementDeRegulationSimpliste(Jonction jonction, int t) 
+	public ElementDeRegulationSimpliste(Jonction jonction) 
 	{
 		super(jonction);
-		this.tempsFeuVert = t;
 	}
 	
 	/**
@@ -17,7 +14,25 @@ public class ElementDeRegulationSimpliste extends ElementDeRegulation
 	{
 		for(Feu f : feux)
 		{
-			f.updateCouleur();
+			if(f.getCouleurFeu().equals(CouleurFeu.Orange))
+			{
+				f.updateCouleur();
+			}
+		}
+		for(int i=0;i<feux.size();i++)
+		{
+			if(feux.get(i).getCouleurFeu().equals(CouleurFeu.Vert))
+			{
+				feux.get(i).updateCouleur();
+				if(++i != feux.size())
+				{
+					feux.get(i).updateCouleur();
+				}
+				else
+				{
+					feux.get(0).updateCouleur();
+				}
+			}
 		}
 	}
 
