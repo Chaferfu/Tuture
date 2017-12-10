@@ -36,7 +36,7 @@ public class Voiture
 	@Override
 	public String toString() {
 		return "Voiture [id=" + id + ", position=" + position + ", sens=" + sens + ", vitesseCourante="
-				+ vitesseCourante + ", vitesseMax=" + vitesseMax + ", routeCourante=" + routeCourante.getId() + ", aAvance="
+				+ vitesseCourante + ", vitesseMax=" + vitesseMax + ", routeCourante=" + routeCourante.getId() 
 				+ "]";
 	}
 
