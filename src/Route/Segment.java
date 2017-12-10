@@ -159,8 +159,15 @@ public class Segment extends Route
 		{
 			s.limiterVitesse();
 		}
-		this.feu1.limiterVitesse();
-		this.feu2.limiterVitesse();
+		if(feu1 != null)
+		{
+			this.feu1.limiterVitesse();
+		}
+		if(feu2 != null)
+		{
+			this.feu2.limiterVitesse();
+		}
+		
 	}
 
 }
