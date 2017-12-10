@@ -114,7 +114,7 @@ public class Reseau
 		
 		creerElementDeRegulation();
 		
-		voitures.add(new Voiture(segments.get(1), 200, Sens.Un, 80));
+		voitures.add(new Voiture(segments.get(3), 200, Sens.Deux, 80));
 
 	}
 	public static void main(String[] args) 
@@ -122,6 +122,11 @@ public class Reseau
 		Reseau r = new Reseau();
 		r.testReseau();
 		r.printJonctions();
+		r.prochaineEtape();
+		r.prochaineEtape();
+		r.prochaineEtape();
+		r.prochaineEtape();
+		r.prochaineEtape();
 		r.prochaineEtape();
 		r.prochaineEtape();
 
