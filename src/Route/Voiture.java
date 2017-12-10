@@ -5,7 +5,7 @@ public class Voiture
 	public static int compteur = 0;
 	
 	private int id;
-	private int position;  //Position sur route actuelle;
+	private int distanceAvantFinRoute;  //Position sur route actuelle;
 	private Sens sens;
 	private int vitesseCourante;
 	private int vitesseMax;
@@ -26,7 +26,7 @@ public class Voiture
 		compteur++;
 		routeCourante = route;
 		if(routeCourante.getLongueur() >= pos){
-		position = pos;
+		distanceAvantFinRoute = pos;
 		}
 		this.sens=sens;
 		vitesseMax = vitesse;
@@ -35,7 +35,7 @@ public class Voiture
 	
 	@Override
 	public String toString() {
-		return "Voiture [id=" + id + ", position=" + position + ", sens=" + sens + ", vitesseCourante="
+		return "Voiture [id=" + id + ", distance à parcourir sur la route actuelle=" + distanceAvantFinRoute + ", sens=" + sens + ", vitesseCourante="
 				+ vitesseCourante + ", vitesseMax=" + vitesseMax + ", routeCourante=" + routeCourante.getId() 
 				+ "]";
 	}
@@ -57,11 +57,11 @@ public class Voiture
 	}
 
 	public int getPosition() {
-		return position;
+		return distanceAvantFinRoute;
 	}
 
 	public void setPosition(int position) {
-		this.position = position;
+		this.distanceAvantFinRoute = position;
 	}
 
 	public Sens getSens() {
@@ -98,9 +98,39 @@ public class Voiture
 	public void setRouteCourante(Route routeCourante) {
 		this.routeCourante = routeCourante;
 	}
-
 	
-	public void avancerVoiture() {
+	public void avancerVoiture()
+	{
+		vitesseCourante = Math.min(vitesseMax,routeCourante.getvmax(sens));
+		System.out.println("Deplacement Voiture "+ id);
+		while(vitesseCourante > 0)
+		{
+			System.out.println("\t"+toString());
+			if(distanceAvantFinRoute == 0)
+			{
+				vitesseCourante--;
+				routeCourante = routeCourante.prochaineRoute(this);
+				vitesseCourante = Math.min(vitesseCourante,routeCourante.getvmax(sens));
+				distanceAvantFinRoute = routeCourante.getLongueur();
+			}
+			else
+			{
+				if(vitesseCourante < distanceAvantFinRoute)
+				{
+					distanceAvantFinRoute -= vitesseCourante;
+					vitesseCourante=0;
+				}
+				else
+				{
+					
+					vitesseCourante -= distanceAvantFinRoute;
+					distanceAvantFinRoute = 0;
+				}
+			}
+		}
+	}
+	
+	/*public void avancerVoiture() {
 		if(this.getSens().equals(Sens.Un)){
 			this.setVitesseCourante(Math.min(this.getVitesseMax(),((Segment)(this.getRouteCourante())).getvMaxSens1()));
 			int positionMaxAtteignable = this.position + this.vitesseCourante;
@@ -144,7 +174,7 @@ public class Voiture
 			}
 		}
 				
-	}
+	}*/
 	
 
 }

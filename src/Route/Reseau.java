@@ -37,7 +37,6 @@ public class Reseau
 		for (Voiture v : voitures)
 		{
 			v.avancerVoiture();
-			System.out.println(v.toString());
 		}
 		
 		
@@ -87,7 +86,7 @@ public class Reseau
 		
 		creerElementDeRegulation();
 		
-		voitures.add(new Voiture(segments.get(0), 50, Sens.Deux, 80));
+		voitures.add(new Voiture(segments.get(0), 60, Sens.Deux, 80));
 	}
 	public void testReseau()
 	{
@@ -145,6 +144,14 @@ public class Reseau
 		Reseau r = new Reseau();
 		r.testTriangle();
 		r.printJonctions();
+		r.prochaineEtape();
+		r.prochaineEtape();
+		r.prochaineEtape();
+		r.prochaineEtape();
+		r.prochaineEtape();
+		r.prochaineEtape();
+		r.prochaineEtape();
+		r.prochaineEtape();
 		r.prochaineEtape();
 		r.prochaineEtape();
 		r.prochaineEtape();

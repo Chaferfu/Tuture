@@ -82,7 +82,6 @@ public class Segment extends Route
 	}
 
 
-
 	/**
 	 * @return the capteurs
 	 */
@@ -129,15 +128,7 @@ public class Segment extends Route
 	public int getvMaxSens1() {
 		return vMaxSens1;
 	}
-
-	public void setvMaxSens1(int vMaxSens1) {
-		this.vMaxSens1 = vMaxSens1;
-	}
-
-	public int getvMaxSens2() {
-		return vMaxSens2;
-	}
-
+	
 	public void setvMaxSens2(int vMaxSens2) {
 		this.vMaxSens2 = vMaxSens2;
 	}
@@ -150,11 +141,50 @@ public class Segment extends Route
 		this.semaphores = semaphores;
 	}
 	
+	/**
+	 * @return the vMaxSens2
+	 */
+	public int getvMaxSens2() {
+		return vMaxSens2;
+	}
+
+	/**
+	 * @param vMaxSens1 the vMaxSens1 to set
+	 */
+	public void setvMaxSens1(int vMaxSens1) {
+		this.vMaxSens1 = vMaxSens1;
+	}
+
+	@Override
+	public Route prochaineRoute(Voiture v)
+	{
+		if(v.getSens().equals(Sens.Un))
+		{
+			return jonction2;
+		}
+		else
+		{
+			return jonction1;
+		}
+	}
+	@Override
+	public int getvmax(Sens s)
+	{
+		if(s.equals(Sens.Un))
+		{
+			return vMaxSens1;
+		}
+		else
+		{
+			return vMaxSens2;
+		}
+	}
 	
 	public void updateLimiteVitesse()
 	{
-		this.setvMaxSens1(Reseau.vitesseMaxGlobale);
-		this.setvMaxSens2(Reseau.vitesseMaxGlobale);
+		vMaxSens1 = Reseau.vitesseMaxGlobale;
+		vMaxSens2 = Reseau.vitesseMaxGlobale;
+		
 		for(Semaphore s : semaphores)
 		{
 			s.limiterVitesse();

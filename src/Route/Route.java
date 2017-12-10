@@ -51,6 +51,19 @@ public abstract class Route
 	public void setLvoitures(ArrayList<Voiture> lvoitures) {
 		this.lvoitures = lvoitures;
 	}
-
 	
+
+	public Route prochaineRoute(Voiture v) {
+		return null;
+	}
+
+
+
+	public int getvmax(Sens s) 
+	{
+
+		return 0;
+	}
+	
+
 }

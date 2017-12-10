@@ -11,7 +11,7 @@ public class Jonction extends Route
 	public Jonction(String id) 
 	{
 		super(id);
-		this.setLongueur(1); 
+		this.setLongueur(0); 
 	}
 	public void printJonction()
 	{
@@ -63,12 +63,29 @@ public class Jonction extends Route
 			System.out.println("Erreur : le segment est deja colle a� " +  s.getJonction1().toString() + " et "  + s.getJonction2().toString());
 		}
 	}
-	
-	public Segment choixSegmentRandom()
+	@Override
+	public Route prochaineRoute(Voiture v)
 	{
 		Random r = new Random();
-		return segments.get(r.nextInt(segments.size()));
+		Segment seg = segments.get(r.nextInt(segments.size()));
+		if(seg.sensVersJonction(this).equals(Sens.Un))
+		{
+			v.setSens(Sens.Deux);
+		}
+		else
+		{
+			v.setSens(Sens.Un);
+		}
+		return seg;
 	}
+
+	@Override
+	public int getvmax(Sens s)
+	{
+		return Reseau.vitesseMaxGlobale;
+	}
+	
+
 	/**
 	 * @param elementDeRegulation the elementDeRegulation to set
 	 */
