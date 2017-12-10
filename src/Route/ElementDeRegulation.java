@@ -44,7 +44,6 @@ public abstract class ElementDeRegulation
 			f.setCouleurFeu(CouleurFeu.Rouge);
 		}	
 		feux.get(0).setCouleurFeu(CouleurFeu.Vert);
-
 	}
 	abstract public void updateFeuxCarrefour();
 
