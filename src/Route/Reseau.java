@@ -66,6 +66,29 @@ public class Reseau
 			j.printJonction();
 		}
 	}
+	public void testTriangle()
+	{
+		jonctions.add(new Jonction("Rond point de l'étoile"));
+		jonctions.add(new Jonction("Rond point Jésus Christ"));
+		jonctions.add(new Jonction("Rond point Alain Chabat"));
+		
+		segments.add(new Segment("Coulée Verte", 200));
+		segments.add(new Segment("Rue Collin Mamet", 200));
+		segments.add(new Segment("Boulevard mystique", 200));
+		
+		jonctions.get(0).joindre(segments.get(0)); 
+		jonctions.get(0).joindre(segments.get(1)); 
+		
+		jonctions.get(1).joindre(segments.get(1));
+		jonctions.get(1).joindre(segments.get(2));
+		
+		jonctions.get(2).joindre(segments.get(2));
+		jonctions.get(2).joindre(segments.get(0));
+		
+		creerElementDeRegulation();
+		
+		voitures.add(new Voiture(segments.get(0), 50, Sens.Deux, 80));
+	}
 	public void testReseau()
 	{
 		
@@ -120,7 +143,7 @@ public class Reseau
 	public static void main(String[] args) 
 	{
 		Reseau r = new Reseau();
-		r.testReseau();
+		r.testTriangle();
 		r.printJonctions();
 		r.prochaineEtape();
 		r.prochaineEtape();
