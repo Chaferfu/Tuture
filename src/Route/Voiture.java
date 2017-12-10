@@ -29,7 +29,7 @@ public class Voiture
 		position = pos;
 		}
 		this.sens=sens;
-		vitesseCourante = vitesse;
+		vitesseMax = vitesse;
 	}
 
 	
