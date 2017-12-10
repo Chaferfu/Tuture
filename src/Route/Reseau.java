@@ -75,13 +75,13 @@ public class Reseau
 		jonctions.add(new Jonction("Rond point 5"));
 		
 		//création des segments
-		segments.add(new Segment("Coulée Verte"));
-		segments.add(new Segment("Rue Collin Mamet"));
-		segments.add(new Segment("Boulevard mystique"));
-		segments.add(new Segment("Rue Chaferfu Lancier"));
-		segments.add(new Segment("Boulevard De La Voie Lactée"));
-		segments.add(new Segment("Rue De <Attention Radar>"));
-		segments.add(new Segment("Route Infinie Vers Le Vide Eternel Et Vers De Terre"));
+		segments.add(new Segment("Coulée Verte", 500));
+		segments.add(new Segment("Rue Collin Mamet", 250));
+		segments.add(new Segment("Boulevard mystique", 100));
+		segments.add(new Segment("Rue Chaferfu Lancier", 1000));
+		segments.add(new Segment("Boulevard De La Voie Lactée", 1300));
+		segments.add(new Segment("Rue De <Attention Radar>", 456));
+		segments.add(new Segment("Route Infinie Vers Le Vide Eternel Et Vers De Terre", 100000));
 		
 		segments.get(0).ajouterSemaphore(new Limiteur(50,Sens.Un));
 		segments.get(2).ajouterSemaphore(new Limiteur(60,Sens.Un));
