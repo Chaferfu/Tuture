@@ -15,9 +15,9 @@ public class Segment extends Route
 	private ArrayList<Capteur> capteurs = new ArrayList<Capteur>();
 	private ArrayList<Semaphore> semaphores = new ArrayList<Semaphore>();
 	
-	public Segment(String id) 
+	public Segment(String id, int l) 
 	{
-		super(id);
+		super(id, l);
 	}
 	
 	public void ajouterSemaphore(Semaphore s)

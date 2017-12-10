@@ -11,6 +11,7 @@ public class Jonction extends Route
 	public Jonction(String id) 
 	{
 		super(id);
+		this.setLongueur(1); 
 	}
 	public void printJonction()
 	{

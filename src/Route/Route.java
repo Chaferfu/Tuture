@@ -18,6 +18,12 @@ public abstract class Route
 	{
 		this.id=id;
 	}
+	
+	public Route(String id, int l) 
+	{
+		this.id=id;
+		longueur = l;
+	}
 
 	public String getId() {
 		return id;
