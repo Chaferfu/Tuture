@@ -99,6 +99,7 @@ public class Voiture
 		this.routeCourante = routeCourante;
 	}
 
+	
 	public void avancerVoiture() {
 		if(this.getSens().equals(Sens.Un)){
 			this.setVitesseCourante(min(this.getVitesseMax(),((Segment)(this.getRouteCourante())).getvMaxSens1()));
