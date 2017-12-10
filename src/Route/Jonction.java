@@ -35,12 +35,12 @@ public class Jonction extends Route
 			s.setJonction1(this);
 			if (rand.nextBoolean())
 			{
-				s.setFeu1(new FeuTricolore(s, Sens.Deux));
+				s.setFeu2(new FeuTricolore(s, Sens.Deux));
 
 			}
 			else 
 			{
-				s.setFeu1(new FeuBicolore(s, Sens.Deux));
+				s.setFeu2(new FeuBicolore(s, Sens.Deux));
 			}
 		}
 		else if (s.getJonction2() == null)
@@ -49,12 +49,12 @@ public class Jonction extends Route
 			s.setJonction2(this);
 			if (rand.nextBoolean())
 			{
-				s.setFeu2(new FeuTricolore(s, Sens.Un));
+				s.setFeu1(new FeuTricolore(s, Sens.Un));
 
 			}
 			else 
 			{
-				s.setFeu2(new FeuBicolore(s, Sens.Un));
+				s.setFeu1(new FeuBicolore(s, Sens.Un));
 			}
 		}
 		else
