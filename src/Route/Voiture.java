@@ -112,7 +112,7 @@ public class Voiture
 					this.setVitesseCourante(((Segment)this.getRouteCourante()).getvMaxSens1());		
 				}
 				if(this.getVitesseCourante() < ((Segment) this.getRouteCourante()).getLongueur()){
-					this.setPosition(this.getVitesseCourante()-1);	
+					this.setPosition(this.getVitesseCourante());	
 				}
 				else {
 					avancerVoiture();
@@ -133,7 +133,7 @@ public class Voiture
 					this.setVitesseCourante(((Segment)this.getRouteCourante()).getvMaxSens1());		
 				}
 				if(this.getVitesseCourante() < ((Segment) this.getRouteCourante()).getLongueur()){
-					this.setPosition(this.getVitesseCourante()-1);	
+					this.setPosition(this.getVitesseCourante());	
 				}
 				else {
 					avancerVoiture();
