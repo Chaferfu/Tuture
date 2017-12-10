@@ -63,7 +63,11 @@ public class Jonction extends Route
 		}
 	}
 	
-
+	public Segment choixSegmentRandom()
+	{
+		Random r = new Random();
+		return segments.get(r.nextInt(segments.size()));
+	}
 	/**
 	 * @param elementDeRegulation the elementDeRegulation to set
 	 */

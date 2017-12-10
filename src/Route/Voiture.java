@@ -106,8 +106,7 @@ public class Voiture
 			if(positionMaxAtteignable >= this.getRouteCourante().getLongueur()){
 				this.setPosition(this.getRouteCourante().getLongueur());
 				this.setVitesseCourante(positionMaxAtteignable-this.getRouteCourante().getLongueur());
-				//this.setRouteCourante(random(((Segment)(this.getRouteCourante())).getJonction2().getSegments()));
-				//Avec la méthode random ci-dessus, la voiture emprunte un des segment associés à la jonction où il se trouve 
+				this.setRouteCourante(((Jonction) routeCourante).choixSegmentRandom());
 				if(this.getVitesseCourante()>((Segment)this.getRouteCourante()).getvMaxSens1()){
 					this.setVitesseCourante(((Segment)this.getRouteCourante()).getvMaxSens1());		
 				}
@@ -128,8 +127,7 @@ public class Voiture
 			if(positionMaxAtteignable <= 0){
 				this.setPosition(0);
 				this.setVitesseCourante(this.getVitesseCourante()-this.getPosition());
-				//this.setRouteCourante(random(((Segment)(this.getRouteCourante())).getJonction1().getSegments()));
-				//Avec la méthode random ci-dessus, la voiture emprunte un des segment associés à la jonction où il se trouve 
+				this.setRouteCourante(((Jonction) routeCourante).choixSegmentRandom());
 				if(this.getVitesseCourante()>((Segment)this.getRouteCourante()).getvMaxSens1()){
 					this.setVitesseCourante(((Segment)this.getRouteCourante()).getvMaxSens1());		
 				}
