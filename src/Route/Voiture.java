@@ -102,7 +102,7 @@ public class Voiture
 	
 	public void avancerVoiture() {
 		if(this.getSens().equals(Sens.Un)){
-			this.setVitesseCourante(min(this.getVitesseMax(),((Segment)(this.getRouteCourante())).getvMaxSens1()));
+			this.setVitesseCourante(Math.min(this.getVitesseMax(),((Segment)(this.getRouteCourante())).getvMaxSens1()));
 			int positionMaxAtteignable = this.position + this.vitesseCourante;
 			if(positionMaxAtteignable >= this.getRouteCourante().getLongueur()){
 				this.setPosition(this.getRouteCourante().getLongueur());
@@ -123,7 +123,7 @@ public class Voiture
 			}
 		}
 		else {
-			this.setVitesseCourante(min(this.getVitesseMax(),((Segment)(this.getRouteCourante())).getvMaxSens2()));
+			this.setVitesseCourante(Math.min(this.getVitesseMax(),((Segment)(this.getRouteCourante())).getvMaxSens2()));
 			int positionMaxAtteignable = this.position - this.vitesseCourante;	
 			if(positionMaxAtteignable <= 0){
 				this.setPosition(0);
@@ -147,9 +147,4 @@ public class Voiture
 	}
 	
 
-	public int min(int i1, int i2) {
-		if (i1 <= i2) return i1;
-		else return i2;
-	}
-	
 }
