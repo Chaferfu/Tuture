@@ -107,7 +107,7 @@ public class Voiture
 			if(positionMaxAtteignable >= this.getRouteCourante().getLongueur()){
 				this.setPosition(this.getRouteCourante().getLongueur());
 				this.setVitesseCourante(positionMaxAtteignable-this.getRouteCourante().getLongueur());
-				this.setRouteCourante(((Jonction) routeCourante).choixSegmentRandom());
+				this.setRouteCourante(((Segment) routeCourante).getJonction2().choixSegmentRandom());
 				if(this.getVitesseCourante()>((Segment)this.getRouteCourante()).getvMaxSens1()){
 					this.setVitesseCourante(((Segment)this.getRouteCourante()).getvMaxSens1());		
 				}
@@ -128,7 +128,7 @@ public class Voiture
 			if(positionMaxAtteignable <= 0){
 				this.setPosition(0);
 				this.setVitesseCourante(this.getVitesseCourante()-this.getPosition());
-				this.setRouteCourante(((Jonction) routeCourante).choixSegmentRandom());
+				this.setRouteCourante(((Segment) routeCourante).getJonction1().choixSegmentRandom());
 				if(this.getVitesseCourante()>((Segment)this.getRouteCourante()).getvMaxSens1()){
 					this.setVitesseCourante(((Segment)this.getRouteCourante()).getvMaxSens1());		
 				}
