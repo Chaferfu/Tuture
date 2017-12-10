@@ -21,11 +21,22 @@ public abstract class ElementDeRegulation
 			Sens temp = s.sensVersJonction(jonction);
 			if(temp.equals(Sens.Un))
 			{
-				feux.add(s.getFeu1());
+				
+				if (s.getFeu1() != null)
+				{
+					feux.add(s.getFeu1());
+				}
+				//System.out.println(s.getFeu1());
 			}
 			else
 			{
-				feux.add(s.getFeu2());
+				if (s.getFeu2() != null)
+				{
+					feux.add(s.getFeu2());
+
+				}
+				//System.out.println(s.getFeu2());
+
 			}
 			for(Capteur c : s.getCapteurs())
 			{
@@ -39,6 +50,7 @@ public abstract class ElementDeRegulation
 	}
 	public void initFeux()
 	{
+		//System.out.println(feux);
 		for(Feu f : feux)
 		{
 			f.setCouleurFeu(CouleurFeu.Rouge);

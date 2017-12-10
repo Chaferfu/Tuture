@@ -7,9 +7,7 @@ public class ElementDeRegulationSimpliste extends ElementDeRegulation
 		super(jonction);
 	}
 	
-	/**
-	 * 
-	 */
+	
 	public void updateFeuxCarrefour()
 	{
 		for(Feu f : feux)
@@ -33,11 +31,6 @@ public class ElementDeRegulationSimpliste extends ElementDeRegulation
 					feux.get(0).updateCouleur();
 				}
 			}
-			else if(i+1 == feux.size())
-			{	
-				feux.get(0).updateCouleur();
-			}
-					
 		}
 	}
 
