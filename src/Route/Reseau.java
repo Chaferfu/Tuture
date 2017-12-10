@@ -66,6 +66,8 @@ public class Reseau
 			j.printJonction();
 		}
 	}
+	
+
 	public void testReseau()
 	{
 		
