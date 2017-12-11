@@ -65,6 +65,7 @@ public class Reseau
 			j.printJonction();
 		}
 	}
+
 	public void testTriangle()
 	{
 		jonctions.add(new Jonction("Rond point de l'étoile"));
@@ -88,6 +89,7 @@ public class Reseau
 		
 		voitures.add(new Voiture(segments.get(0), 60, Sens.Deux, 80));
 	}
+
 	public void testReseau()
 	{
 		
