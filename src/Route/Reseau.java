@@ -1,6 +1,7 @@
 package Route;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Reseau 
 {
@@ -19,7 +20,6 @@ public class Reseau
 	 */
 	public void prochaineEtape()
 	{
-		//TODO
 		//update feux
 		for (Jonction j : jonctions)
 		{
@@ -31,6 +31,10 @@ public class Reseau
 		for (Segment s : segments)
 		{
 			s.updateLimiteVitesse();
+			for(Capteur c : s.getCapteurs())
+			{
+				c.reinitialiseCapteur();
+			}
 		}
 		
 		//les voitures avancent
@@ -38,9 +42,13 @@ public class Reseau
 		{
 			v.avancerVoiture();
 		}
-		
-		
-	
+		for (Segment s : segments)
+		{
+			for(Capteur c : s.getCapteurs())
+			{
+				System.out.println(c.getInformationPassage());
+			}
+		}
 	}
 	
 	public void creerElementDeRegulation()
@@ -136,31 +144,25 @@ public class Reseau
 		jonctions.get(4).joindre(segments.get(3));
 		jonctions.get(4).joindre(segments.get(5));
 		
+		segments.get(0).addCapteur(new Capteur(segments.get(0),Sens.Deux,150));
+		
 		creerElementDeRegulation();
 		
-		voitures.add(new Voiture(segments.get(3), 200, Sens.Deux, 80));
+		voitures.add(new Voiture(segments.get(0), 200, Sens.Deux, 80));
 
 	}
 	public static void main(String[] args) 
 	{
 		Reseau r = new Reseau();
-		r.testTriangle();
-		r.printJonctions();
-		r.prochaineEtape();
-		r.prochaineEtape();
-		r.prochaineEtape();
-		r.prochaineEtape();
-		r.prochaineEtape();
-		r.prochaineEtape();
-		r.prochaineEtape();
-		r.prochaineEtape();
-		r.prochaineEtape();
-		r.prochaineEtape();
-		r.prochaineEtape();
-		r.prochaineEtape();
-		r.prochaineEtape();
-		r.prochaineEtape();
-		r.prochaineEtape();
+		r.testReseau();
+		Scanner sc = new Scanner(System.in);
+		while(true)
+		{
+			String s = sc.next();
+			r.prochaineEtape();		
+		}
+		
+		
 
 	}
 

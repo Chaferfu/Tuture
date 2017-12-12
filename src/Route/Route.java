@@ -56,6 +56,7 @@ public abstract class Route
 	public Route prochaineRoute(Voiture v) {
 		return null;
 	}
+	public abstract void couleurFeu(Voiture v);
 
 
 

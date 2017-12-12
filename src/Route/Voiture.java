@@ -1,6 +1,8 @@
 package Route;
 
-public class Voiture 
+import java.util.Observable;
+
+public class Voiture extends Observable
 {
 	public static int compteur = 0;
 	
@@ -10,6 +12,7 @@ public class Voiture
 	private int vitesseCourante;
 	private int vitesseMax;
 	private Route routeCourante;
+	private Capteur capteur;
 	
 	
 
@@ -17,7 +20,6 @@ public class Voiture
 	{
 		this.id = compteur;
 		compteur++;
-		// TODO Auto-generated constructor stub
 	}
 	
 	public Voiture(Route route, int pos, Sens sens, int vitesse) 
@@ -26,7 +28,7 @@ public class Voiture
 		compteur++;
 		routeCourante = route;
 		if(routeCourante.getLongueur() >= pos){
-		distanceAvantFinRoute = pos;
+		setDistanceAvantFinRoute(pos);
 		}
 		this.sens=sens;
 		vitesseMax = vitesse;
@@ -55,13 +57,28 @@ public class Voiture
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 
-	public int getPosition() {
+	public Capteur getCapteur() {
+		return capteur;
+	}
+
+	public void setCapteur(Capteur capteur) {
+		this.capteur = capteur;
+	}
+
+	
+
+	public int getDistanceAvantFinRoute() 
+	{
 		return distanceAvantFinRoute;
 	}
 
-	public void setPosition(int position) {
-		this.distanceAvantFinRoute = position;
+	public void setDistanceAvantFinRoute(int distanceAvantFinRoute) 
+	{
+		this.distanceAvantFinRoute = distanceAvantFinRoute;
+		setChanged();
+		notifyObservers(distanceAvantFinRoute);
 	}
 
 	public Sens getSens() {
@@ -102,83 +119,37 @@ public class Voiture
 	public void avancerVoiture()
 	{
 		vitesseCourante = Math.min(vitesseMax,routeCourante.getvmax(sens));
-		System.out.println("Deplacement Voiture "+ id);
+		System.out.println("Voiture "+ id);
+		routeCourante.couleurFeu(this);
 		while(vitesseCourante > 0)
 		{
 			System.out.println("\t"+toString());
+			
 			if(distanceAvantFinRoute == 0)
 			{
 				vitesseCourante--;
 				routeCourante = routeCourante.prochaineRoute(this);
 				vitesseCourante = Math.min(vitesseCourante,routeCourante.getvmax(sens));
-				distanceAvantFinRoute = routeCourante.getLongueur();
+				setDistanceAvantFinRoute(routeCourante.getLongueur());
+				routeCourante.couleurFeu(this);
 			}
 			else
 			{
 				if(vitesseCourante < distanceAvantFinRoute)
 				{
-					distanceAvantFinRoute -= vitesseCourante;
+					setDistanceAvantFinRoute(distanceAvantFinRoute-vitesseCourante);
 					vitesseCourante=0;
 				}
 				else
 				{
 					
 					vitesseCourante -= distanceAvantFinRoute;
-					distanceAvantFinRoute = 0;
+					setDistanceAvantFinRoute(0);
 				}
 			}
+			
 		}
 	}
-	
-	
-	
-	
-	
-	/*public void avancerVoiture() {
-		if(this.getSens().equals(Sens.Un)){
-			this.setVitesseCourante(Math.min(this.getVitesseMax(),((Segment)(this.getRouteCourante())).getvMaxSens1()));
-			int positionMaxAtteignable = this.position + this.vitesseCourante;
-			if(positionMaxAtteignable >= this.getRouteCourante().getLongueur()){
-				this.setPosition(this.getRouteCourante().getLongueur());
-				this.setVitesseCourante(positionMaxAtteignable-this.getRouteCourante().getLongueur());
-				this.setRouteCourante(((Segment) routeCourante).getJonction2().choixSegmentRandom());
-				if(this.getVitesseCourante()>((Segment)this.getRouteCourante()).getvMaxSens1()){
-					this.setVitesseCourante(((Segment)this.getRouteCourante()).getvMaxSens1());		
-				}
-				if(this.getVitesseCourante() < ((Segment) this.getRouteCourante()).getLongueur()){
-					this.setPosition(this.getVitesseCourante());	
-				}
-				else {
-					avancerVoiture();
-				}
-			}
-			else{
-				this.setPosition(positionMaxAtteignable);		
-			}
-		}
-		else {
-			this.setVitesseCourante(Math.min(this.getVitesseMax(),((Segment)(this.getRouteCourante())).getvMaxSens2()));
-			int positionMaxAtteignable = this.position - this.vitesseCourante;	
-			if(positionMaxAtteignable <= 0){
-				this.setPosition(0);
-				this.setVitesseCourante(this.getVitesseCourante()-this.getPosition());
-				this.setRouteCourante(((Segment) routeCourante).getJonction1().choixSegmentRandom());
-				if(this.getVitesseCourante()>((Segment)this.getRouteCourante()).getvMaxSens1()){
-					this.setVitesseCourante(((Segment)this.getRouteCourante()).getvMaxSens1());		
-				}
-				if(this.getVitesseCourante() < ((Segment) this.getRouteCourante()).getLongueur()){
-					this.setPosition(this.getVitesseCourante());	
-				}
-				else {
-					avancerVoiture();
-				}
-			}
-			else{
-				this.setPosition(positionMaxAtteignable);		
-			}
-		}
-				
-	}*/
 	
 
 }

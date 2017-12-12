@@ -1,10 +1,18 @@
 package Route;
 
+import java.util.Observable;
+
 public class CapteurVitesse extends Capteur 
 {
-	public CapteurVitesse(Segment s, ElementDeRegulation e, Sens S, int p) 
+	public CapteurVitesse(Segment s, Sens S, int p) 
 	{
-		super(s, e, S, p);
+		super(s, S, p);
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

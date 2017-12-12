@@ -1,25 +1,71 @@
 package Route;
 
-public abstract class Capteur 
+import java.util.Observable;
+import java.util.Observer;
+
+public class Capteur implements Observer
 {
 	private Segment segment;
-	private ElementDeRegulation elementDeRegulation;
 	private Sens sens;
-	private int position;
+	private int distanceAvantFinRoute;
+	private String informationPassage;
+	private boolean uneVoitureEstPasseeIciMonGars;
 	
+	public void update(Observable obs, Object obj) 
+	{
+		System.out.println("hey");
+		try
+		{
+			
+			Voiture v = (Voiture)obs;
+			if(uneVoitureEstPasseeIciMonGars==true)
+			{
+				informationPassage = "il y a un risque de collision entre "+ informationPassage;
+			}
+			else
+			{
+				uneVoitureEstPasseeIciMonGars = true;
+				informationPassage="voiture passé devant capteur segment "+ segment.getId()+" : ";
+			}
+			if(v.getDistanceAvantFinRoute()<distanceAvantFinRoute)
+			{
+				informationPassage += " [" + v.getId() + "]";
+			}
+		}catch(ClassCastException e)
+		{
+			System.out.println("oula qu'est-ce qu'il se passe");
+		}
+		
+		
+	}
+	public void reinitialiseCapteur()
+	{
+		informationPassage = "";
+		uneVoitureEstPasseeIciMonGars = false;
+	}
 	
-	public Capteur(Segment s, ElementDeRegulation e, Sens S, int p) 
+	public Capteur(Segment s, Sens S, int p) 
 	{
 		segment = s;
-		elementDeRegulation = e;
 		this.sens = S;
-		position=p;
 	}
 
-
+	
+	public String getInformationPassage() {
+		return informationPassage;
+	}
+	public void setInformationPassage(String informationPassage) {
+		this.informationPassage = informationPassage;
+	}
+	public boolean isUneVoitureEstPasseeIciMonGars() {
+		return uneVoitureEstPasseeIciMonGars;
+	}
+	public void setUneVoitureEstPasseeIciMonGars(boolean uneVoitureEstPasseeIciMonGars) {
+		this.uneVoitureEstPasseeIciMonGars = uneVoitureEstPasseeIciMonGars;
+	}
 	@Override
 	public String toString() {
-		return "Capteur " +  getClass() + " [segment=" + segment + ", sens=" + sens + ", position=" + position  + "]";
+		return "Capteur " +  getClass() + " [segment=" + segment + ", sens=" + sens + ", position=" + distanceAvantFinRoute  + "]";
 	}
 	
 	

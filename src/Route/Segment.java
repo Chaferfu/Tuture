@@ -71,6 +71,7 @@ public class Segment extends Route
 	public Feu getFeu2() {
 		return feu2;
 	}
+	
 
 	public void setFeu2(Feu feu2) {
 		this.feu2 = feu2;
@@ -177,6 +178,18 @@ public class Segment extends Route
 		else
 		{
 			return vMaxSens2;
+		}
+	}
+	@Override
+	public void couleurFeu(Voiture v)
+	{
+		if(v.getSens().equals(Sens.Un))
+		{
+			System.out.println("La voiture est sur un segment dont le feu est de couleur : "+ feu1.couleurFeu);
+		}
+		else
+		{
+			System.out.println("La voiture est sur un segment dont le feu est de couleur : "+ feu2.couleurFeu);
 		}
 	}
 	
