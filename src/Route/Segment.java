@@ -141,7 +141,17 @@ public class Segment extends Route
 	public void setSemaphores(ArrayList<Semaphore> semaphores) {
 		this.semaphores = semaphores;
 	}
-	
+	@Override
+	public void addObserverCapteur(Voiture v)
+	{
+		for(Capteur c : capteurs)
+		{
+			if(c.getSens().equals(v.getSens()))
+			{
+				v.addObserver(c);	
+			}
+		}
+	}
 	/**
 	 * @return the vMaxSens2
 	 */

@@ -1,6 +1,7 @@
 package Route;
 
 import java.util.Observable;
+import java.util.Observer;
 
 public class Voiture extends Observable
 {
@@ -12,7 +13,6 @@ public class Voiture extends Observable
 	private int vitesseCourante;
 	private int vitesseMax;
 	private Route routeCourante;
-	private Capteur capteur;
 	
 	
 
@@ -27,11 +27,15 @@ public class Voiture extends Observable
 		this.id = compteur;
 		compteur++;
 		routeCourante = route;
-		if(routeCourante.getLongueur() >= pos){
-		setDistanceAvantFinRoute(pos);
-		}
 		this.sens=sens;
+		if(routeCourante.getLongueur() >= pos)
+		{
+			setDistanceAvantFinRoute(pos);
+		}
+			
 		vitesseMax = vitesse;
+		routeCourante.addObserverCapteur(this);
+		
 	}
 
 	
@@ -58,14 +62,6 @@ public class Voiture extends Observable
 		this.id = id;
 	}
 	
-
-	public Capteur getCapteur() {
-		return capteur;
-	}
-
-	public void setCapteur(Capteur capteur) {
-		this.capteur = capteur;
-	}
 
 	
 
@@ -129,6 +125,8 @@ public class Voiture extends Observable
 			{
 				vitesseCourante--;
 				routeCourante = routeCourante.prochaineRoute(this);
+				this.deleteObservers();
+				routeCourante.addObserverCapteur(this);
 				vitesseCourante = Math.min(vitesseCourante,routeCourante.getvmax(sens));
 				setDistanceAvantFinRoute(routeCourante.getLongueur());
 				routeCourante.couleurFeu(this);
@@ -149,6 +147,8 @@ public class Voiture extends Observable
 			}
 			
 		}
+		System.out.println("\t||ETAT FINAL|| "+toString());
+		
 	}
 	
 

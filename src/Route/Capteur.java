@@ -9,27 +9,28 @@ public class Capteur implements Observer
 	private Sens sens;
 	private int distanceAvantFinRoute;
 	private String informationPassage;
+	private String informationCollision;
 	private boolean uneVoitureEstPasseeIciMonGars;
 	
+	@Override
 	public void update(Observable obs, Object obj) 
 	{
-		System.out.println("hey");
 		try
 		{
-			
-			Voiture v = (Voiture)obs;
-			if(uneVoitureEstPasseeIciMonGars==true)
-			{
-				informationPassage = "il y a un risque de collision entre "+ informationPassage;
-			}
-			else
-			{
-				uneVoitureEstPasseeIciMonGars = true;
-				informationPassage="voiture passé devant capteur segment "+ segment.getId()+" : ";
-			}
+			Voiture v = (Voiture)obs;		
 			if(v.getDistanceAvantFinRoute()<distanceAvantFinRoute)
 			{
+				if(uneVoitureEstPasseeIciMonGars==true)
+				{
+					informationCollision = "|Risque COLLISION|";
+				}
+				else
+				{
+					uneVoitureEstPasseeIciMonGars = true;
+					informationPassage="voiture passé devant capteur segment "+ segment.getId()+" : ";
+				}
 				informationPassage += " [" + v.getId() + "]";
+				v.deleteObserver(this);
 			}
 		}catch(ClassCastException e)
 		{
@@ -41,6 +42,7 @@ public class Capteur implements Observer
 	public void reinitialiseCapteur()
 	{
 		informationPassage = "";
+		informationCollision = "";
 		uneVoitureEstPasseeIciMonGars = false;
 	}
 	
@@ -48,11 +50,13 @@ public class Capteur implements Observer
 	{
 		segment = s;
 		this.sens = S;
+		this.distanceAvantFinRoute=p;
 	}
 
 	
-	public String getInformationPassage() {
-		return informationPassage;
+	public String getInformationPassage() 
+	{
+		return informationCollision+" "+informationPassage;
 	}
 	public void setInformationPassage(String informationPassage) {
 		this.informationPassage = informationPassage;

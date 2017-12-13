@@ -57,6 +57,8 @@ public abstract class Route
 		return null;
 	}
 	public abstract void couleurFeu(Voiture v);
+	public abstract void addObserverCapteur(Voiture v);
+	
 
 
 

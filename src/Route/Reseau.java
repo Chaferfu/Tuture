@@ -148,7 +148,8 @@ public class Reseau
 		
 		creerElementDeRegulation();
 		
-		voitures.add(new Voiture(segments.get(0), 200, Sens.Deux, 80));
+		voitures.add(new Voiture(segments.get(0), 400, Sens.Deux, 80));
+		voitures.add(new Voiture(segments.get(0), 400, Sens.Deux, 80));
 
 	}
 	public static void main(String[] args) 

@@ -23,6 +23,10 @@ public class Jonction extends Route
 	}
 	
 	@Override
+	public void addObserverCapteur(Voiture v) {}
+
+	
+	@Override
 	public void couleurFeu(Voiture v) {}
 
 	/**
