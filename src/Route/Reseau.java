@@ -152,6 +152,54 @@ public class Reseau
 		voitures.add(new Voiture(segments.get(0), 400, Sens.Deux, 80));
 	}
 	
+	/**
+	 * Fonction de test pour la création du réseau
+	 */
+	public void testTriangle()
+	{
+		
+		//création des jonctions
+		jonctions.add(new Jonction("Rond point de l'étoile"));
+		jonctions.add(new Jonction("Rond point Jésus Christ"));
+		jonctions.add(new Jonction("Rond point Alain Chabat"));
+		
+		//création des segments
+		segments.add(new Segment("Coulée Verte", 200));
+		segments.add(new Segment("Rue Collin Mamet", 250));
+		segments.add(new Segment("Boulevard mystique", 100));
+
+		
+		
+		//création de quelques sémaphores, les feux se créent automatiquement lorsque l'on ajoute un segment à un carrefour
+		segments.get(0).ajouterSemaphore(new Limiteur(50,Sens.Un));
+		segments.get(2).ajouterSemaphore(new Limiteur(60,Sens.Un));
+
+
+		//liens segments (donc création des feux)
+		jonctions.get(0).joindre(segments.get(0)); 
+		jonctions.get(0).joindre(segments.get(1)); 
+		
+		jonctions.get(1).joindre(segments.get(1));
+		jonctions.get(1).joindre(segments.get(2));
+		
+		jonctions.get(2).joindre(segments.get(2));
+		jonctions.get(2).joindre(segments.get(0));
+
+		
+		
+		//ajout de quelques capteurs
+		segments.get(0).addCapteur(new CapteurVitesse(segments.get(0),Sens.Deux,150));
+		segments.get(1).addCapteur(new CapteurVitesse(segments.get(1),Sens.Deux,150));
+		segments.get(2).addCapteur(new Capteur(segments.get(2),Sens.Deux,150));
+		
+		//Création des élémnents de régulation en parcourant les jonctions.
+		creerElementDeRegulation();
+		
+		//ajout des voitures
+		voitures.add(new Voiture(segments.get(0), 400, Sens.Deux, 80));
+		voitures.add(new Voiture(segments.get(0), 400, Sens.Deux, 80));
+	}
+	
 	
 	public static void main(String[] args) 
 	{
