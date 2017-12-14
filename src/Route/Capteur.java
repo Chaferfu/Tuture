@@ -11,6 +11,7 @@ public class Capteur implements Observer
 	private String informationPassage;
 	private String informationCollision;
 	private boolean uneVoitureEstPasseeIciMonGars;
+	private int nbrVoiture=0;
 	
 	@Override
 	public void update(Observable obs, Object obj) 
@@ -30,6 +31,7 @@ public class Capteur implements Observer
 					informationPassage="voiture passé devant capteur segment "+ segment.getId()+" : ";
 				}
 				informationPassage += " [" + v.getId() + "]";
+				nbrVoiture++;
 				v.deleteObserver(this);
 			}
 		}catch(ClassCastException e)
@@ -44,6 +46,7 @@ public class Capteur implements Observer
 		informationPassage = "";
 		informationCollision = "";
 		uneVoitureEstPasseeIciMonGars = false;
+		nbrVoiture=0;
 	}
 	
 	public Capteur(Segment s, Sens S, int p) 
@@ -52,8 +55,24 @@ public class Capteur implements Observer
 		this.sens = S;
 		this.distanceAvantFinRoute=p;
 	}
-
+	public Feu getFeu()
+	{
+		if(sens.equals(Sens.Un))
+		{
+			return segment.getFeu1();
+		}
+		else
+		{
+			return segment.getFeu2();
+		}
+	}
 	
+	public int getNbrVoiture() {
+		return nbrVoiture;
+	}
+	public void setNbrVoiture(int nbrVoiture) {
+		this.nbrVoiture = nbrVoiture;
+	}
 	public String getInformationPassage() 
 	{
 		return informationCollision+" "+informationPassage;
@@ -73,6 +92,12 @@ public class Capteur implements Observer
 	}
 	
 	
+	public Segment getSegment() {
+		return segment;
+	}
+	public void setSegment(Segment segment) {
+		this.segment = segment;
+	}
 	/**
 	 * @return the sens
 	 */

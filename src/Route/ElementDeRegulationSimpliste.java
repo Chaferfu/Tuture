@@ -7,7 +7,7 @@ public class ElementDeRegulationSimpliste extends ElementDeRegulation
 		super(jonction);
 	}
 	
-	
+	@Override
 	public void updateFeuxCarrefour()
 	{
 		for(Feu f : feux)

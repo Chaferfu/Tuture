@@ -5,7 +5,9 @@ import java.util.Scanner;
 
 public class Reseau 
 {
-	public static int vitesseMaxGlobale = 100;
+	/////VARIABLES/////
+	
+	public static int vitesseMaxGlobale = 100; // vitesse de limitation sur les segments sans limiteur
 	ArrayList<Segment> segments = new ArrayList<Segment>();
 	ArrayList<Jonction> jonctions = new ArrayList<Jonction>();
 	ArrayList<Voiture> voitures = new ArrayList<Voiture>();
@@ -16,7 +18,7 @@ public class Reseau
 	}
 
 	/**
-	 * Fonction qui d√©roule un inetrvalle de temps sur l'ensemble du r√©seau
+	 * Fonction qui deroule un intervalle de temps sur l'ensemble du reseau
 	 */
 	public void prochaineEtape()
 	{
@@ -55,14 +57,16 @@ public class Reseau
 	{
 		for(Jonction j : jonctions)
 		{
-			if(Math.random()<1)
+			// Lors de test on ne considËre que des element des regulation complexe, c'est plus interessant
+			if(Math.random()<0)
 			{
 				ElementDeRegulation e = new ElementDeRegulationSimpliste(j);
 				j.setElementDeRegulation(e);
 			}
 			else
 			{
-				//TODO crÈation Element de regulation compliquÈ
+				ElementDeRegulation e = new ElementDeRegulationComplexe(j);
+				j.setElementDeRegulation(e);
 			}
 		}
 	}
@@ -74,29 +78,6 @@ public class Reseau
 		}
 	}
 
-	public void testTriangle()
-	{
-		jonctions.add(new Jonction("Rond point de l'Ètoile"));
-		jonctions.add(new Jonction("Rond point JÈsus Christ"));
-		jonctions.add(new Jonction("Rond point Alain Chabat"));
-		
-		segments.add(new Segment("CoulÈe Verte", 200));
-		segments.add(new Segment("Rue Collin Mamet", 200));
-		segments.add(new Segment("Boulevard mystique", 200));
-		
-		jonctions.get(0).joindre(segments.get(0)); 
-		jonctions.get(0).joindre(segments.get(1)); 
-		
-		jonctions.get(1).joindre(segments.get(1));
-		jonctions.get(1).joindre(segments.get(2));
-		
-		jonctions.get(2).joindre(segments.get(2));
-		jonctions.get(2).joindre(segments.get(0));
-		
-		creerElementDeRegulation();
-		
-		voitures.add(new Voiture(segments.get(0), 60, Sens.Deux, 80));
-	}
 
 	public void testReseau()
 	{
@@ -145,6 +126,9 @@ public class Reseau
 		jonctions.get(4).joindre(segments.get(5));
 		
 		segments.get(0).addCapteur(new Capteur(segments.get(0),Sens.Deux,150));
+		segments.get(1).addCapteur(new Capteur(segments.get(1),Sens.Deux,150));
+		segments.get(2).addCapteur(new Capteur(segments.get(2),Sens.Deux,150));
+		segments.get(3).addCapteur(new Capteur(segments.get(3),Sens.Deux,150));
 		
 		creerElementDeRegulation();
 		
@@ -157,10 +141,26 @@ public class Reseau
 		Reseau r = new Reseau();
 		r.testReseau();
 		Scanner sc = new Scanner(System.in);
-		while(true)
+		boolean quitter=false;
+		
+		while(!quitter)
 		{
+			System.out.println("||INTERFACE|| Pour ||INTERFACE||");
 			String s = sc.next();
-			r.prochaineEtape();		
+			if(s.equals("1"))
+			{
+				r.prochaineEtape();	
+			}
+			else if(s.equals("2"))
+			{
+				System.out.println("\nMerci d'Ítre passÈ, bonne journÈe ! \nDe la part de Mathias Bazin, Yassine Amraoui et Nathan Bonnard !");
+				quitter=true;
+			}
+			else
+			{
+				System.out.println("\n||Attention|| Vous n'avez pas rentrer un commande qui existe ||Attention||");
+			}
+				
 		}
 		
 		

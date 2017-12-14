@@ -97,6 +97,7 @@ public class Segment extends Route
 		return jonction1;
 	}
 
+	
 	/**
 	 * @return the jonction2
 	 */
@@ -195,11 +196,19 @@ public class Segment extends Route
 	{
 		if(v.getSens().equals(Sens.Un))
 		{
-			System.out.println("La voiture est sur un segment dont le feu est de couleur : "+ feu1.couleurFeu);
+			if(feu1 != null)
+			{
+				System.out.println("La voiture est sur un segment dont le feu est de couleur : "+ feu1.couleurFeu);
+
+			}
 		}
 		else
 		{
-			System.out.println("La voiture est sur un segment dont le feu est de couleur : "+ feu2.couleurFeu);
+			if(feu2!=null)
+			{
+				System.out.println("La voiture est sur un segment dont le feu est de couleur : "+ feu2.couleurFeu);
+
+			}
 		}
 	}
 	
