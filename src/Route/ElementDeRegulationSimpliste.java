@@ -7,6 +7,9 @@ public class ElementDeRegulationSimpliste extends ElementDeRegulation
 		super(jonction);
 	}
 	
+	/**
+	 * algorithme simpliste pour gérer les feux des carrefours (change les feux tous les intervalles de temps)
+	 */
 	@Override
 	public void updateFeuxCarrefour()
 	{

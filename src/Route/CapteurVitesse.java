@@ -8,7 +8,10 @@ public class CapteurVitesse extends Capteur
 	{
 		super(s, S, p);
 	}
-
+	
+	/**
+	 * redéfinition de update pour rajouter de l'information d'affichage.
+	 */
 	@Override
 	public void update(Observable obs, Object obj) 
 	{

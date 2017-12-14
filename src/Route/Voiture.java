@@ -5,6 +5,8 @@ import java.util.Observer;
 
 public class Voiture extends Observable
 {
+	
+	//// Variables /////
 	public static int compteur = 0;
 	
 	private int id;
@@ -13,7 +15,6 @@ public class Voiture extends Observable
 	private int vitesseCourante;
 	private int vitesseMax;
 	private Route routeCourante;
-	
 	
 
 	public Voiture() 
@@ -38,80 +39,9 @@ public class Voiture extends Observable
 		
 	}
 
-	
-	@Override
-	public String toString() {
-		return "Voiture [id=" + id + ", distance à parcourir sur la route actuelle=" + distanceAvantFinRoute + ", sens=" + sens + ", vitesseCourante="
-				+ vitesseCourante + ", vitesseMax=" + vitesseMax + ", routeCourante=" + routeCourante.getId() 
-				+ "]";
-	}
-
-	public static int getCompteur() {
-		return compteur;
-	}
-
-	public static void setCompteur(int compteur) {
-		Voiture.compteur = compteur;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-
-	
-
-	public int getDistanceAvantFinRoute() 
-	{
-		return distanceAvantFinRoute;
-	}
-
-	public void setDistanceAvantFinRoute(int distanceAvantFinRoute) 
-	{
-		this.distanceAvantFinRoute = distanceAvantFinRoute;
-		setChanged();
-		notifyObservers(distanceAvantFinRoute);
-	}
-
-	public Sens getSens() {
-		return sens;
-	}
-
-	public void setSens(Sens sens) {
-		this.sens = sens;
-	}
-
-	public int getVitesseCourante() {
-		return vitesseCourante;
-	}
-
-	public void setVitesseCourante(int vitesseCourante) {
-		this.vitesseCourante = vitesseCourante;
-	}
-
-	public Route getRouteCourante() {
-		return routeCourante;
-	}
-	
-	
-
-	public int getVitesseMax() {
-		return vitesseMax;
-	}
-
-	public void setVitesseMax(int vitesseMax) {
-		this.vitesseMax = vitesseMax;
-	}
-
-
-	public void setRouteCourante(Route routeCourante) {
-		this.routeCourante = routeCourante;
-	}
-	
+	/**
+	 * Fonction qui fait avancer la voiture en question (est appelé par intervalle de temps)
+	 */
 	public void avancerVoiture()
 	{
 		int temp = vitesseMax;
@@ -160,6 +90,79 @@ public class Voiture extends Observable
 		System.out.println("||ETAT FINAL|| "+toString()+"\n");
 		
 	}
+	///// Getters & Setters & ToString
+	@Override
+	public String toString() {
+		return "Voiture [id=" + id + ", distance à parcourir sur la route actuelle=" + distanceAvantFinRoute + ", sens=" + sens + ", vitesseCourante="
+				+ vitesseCourante + ", vitesseMax=" + vitesseMax + ", routeCourante=" + routeCourante.getId() 
+				+ "]";
+	}
+
+	public static int getCompteur() {
+		return compteur;
+	}
+
+	public static void setCompteur(int compteur) {
+		Voiture.compteur = compteur;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public int getDistanceAvantFinRoute() 
+	{
+		return distanceAvantFinRoute;
+	}
+
+	public void setDistanceAvantFinRoute(int distanceAvantFinRoute) 
+	{
+		this.distanceAvantFinRoute = distanceAvantFinRoute;
+		setChanged();
+		notifyObservers(distanceAvantFinRoute);
+	}
+
+	public Sens getSens() {
+		return sens;
+	}
+
+	public void setSens(Sens sens) {
+		this.sens = sens;
+	}
+
+	public int getVitesseCourante() {
+		return vitesseCourante;
+	}
+
+	public void setVitesseCourante(int vitesseCourante) {
+		this.vitesseCourante = vitesseCourante;
+	}
+
+	public Route getRouteCourante() {
+		return routeCourante;
+	}
+	
+	
+
+	public int getVitesseMax() {
+		return vitesseMax;
+	}
+
+	public void setVitesseMax(int vitesseMax) {
+		this.vitesseMax = vitesseMax;
+	}
+
+
+	public void setRouteCourante(Route routeCourante) {
+		this.routeCourante = routeCourante;
+	}
+	
+	
 	
 
 }

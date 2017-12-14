@@ -13,6 +13,7 @@ public class Jonction extends Route
 		super(id);
 		this.setLongueur(0); 
 	}
+
 	public void printJonction()
 	{
 		System.out.println(this.getId()+" est attachï¿½ ï¿½ :");
@@ -70,6 +71,9 @@ public class Jonction extends Route
 			System.out.println("Erreur : le segment est deja colle aï¿½ " +  s.getJonction1().toString() + " et "  + s.getJonction2().toString());
 		}
 	}
+	/**
+	 * renvoie la prochaine route disponible pour une voiture donnée
+	 */
 	@Override
 	public Route prochaineRoute(Voiture v)
 	{

@@ -37,6 +37,11 @@ public class Segment extends Route
 		semaphores.add(s);
 	}
 	
+	/**
+	 * défini le sens du segment pour aller vers une jonction donnée
+	 * @param jonction
+	 * @return
+	 */
 	public Sens sensVersJonction(Jonction jonction)
 	{
 		if(jonction == jonction1)
@@ -53,6 +58,114 @@ public class Segment extends Route
 			return null;
 		}
 	}
+	
+	@Override
+	public void addObserverCapteur(Voiture v)
+	{
+		for(Capteur c : capteurs)
+		{
+			if(c.getSens().equals(v.getSens()))
+			{
+				v.addObserver(c);	
+			}
+		}
+	}
+	
+	/**
+	 * renvoie la prochaine route disponible pour une voiture donnée
+	 */
+	@Override
+	public Route prochaineRoute(Voiture v)
+	{
+		if(v.getSens().equals(Sens.Un))
+		{
+			if(jonction2!=null)
+			{
+				return jonction2;
+			}
+			else
+			{
+				v.setSens(Sens.Deux);
+				return this;
+			}
+		}
+		else
+		{
+			if(jonction1!=null)
+			{
+				return jonction1;
+			}
+			else
+			{
+				v.setSens(Sens.Un);
+				return this;
+			}
+		}
+	}
+	
+	/**
+	 * renvoie la couleur d'un feu en lien avec une voiture donnée (nécessité d'un boolean pour l'affichage quand nécessaire)
+	 */
+	@Override
+	public CouleurFeu couleurFeu(Voiture v,boolean affichage)
+	{
+		if(v.getSens().equals(Sens.Un))
+		{
+			if(feu1 != null)
+			{
+				if(affichage)System.out.println("||La voiture est sur un segment dont le feu est de couleur : "+ feu1.couleurFeu+"||");
+				return feu1.couleurFeu;
+
+			}
+		}
+		else
+		{
+			if(feu2!=null)
+			{
+				if(affichage)System.out.println("||La voiture est sur un segment dont le feu est de couleur : "+ feu2.couleurFeu+"||");
+				return feu2.couleurFeu;
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * fonction qui est appelé à tous les débuts d'intervalles de temps pour redéfinir la vitesse maximum d'un segment
+	 */
+	public void updateLimiteVitesse()
+	{
+		vMaxSens1 = Reseau.vitesseMaxGlobale;
+		vMaxSens2 = Reseau.vitesseMaxGlobale;
+		
+		for(Semaphore s : semaphores)
+		{
+			s.limiterVitesse();
+		}
+		if(feu1 != null)
+		{
+			this.feu1.limiterVitesse();
+		}
+		if(feu2 != null)
+		{
+			this.feu2.limiterVitesse();
+		}
+		
+	}
+	
+	///// Getters & Setters & ToString
+	@Override
+	public int getvmax(Sens s)
+	{
+		if(s.equals(Sens.Un))
+		{
+			return vMaxSens1;
+		}
+		else
+		{
+			return vMaxSens2;
+		}
+	}
+	
 
 	public ArrayList<Semaphore> getSemaphores() {
 		return semaphores;
@@ -142,17 +255,7 @@ public class Segment extends Route
 	public void setSemaphores(ArrayList<Semaphore> semaphores) {
 		this.semaphores = semaphores;
 	}
-	@Override
-	public void addObserverCapteur(Voiture v)
-	{
-		for(Capteur c : capteurs)
-		{
-			if(c.getSens().equals(v.getSens()))
-			{
-				v.addObserver(c);	
-			}
-		}
-	}
+	
 	/**
 	 * @return the vMaxSens2
 	 */
@@ -167,88 +270,7 @@ public class Segment extends Route
 		this.vMaxSens1 = vMaxSens1;
 	}
 
-	@Override
-	public Route prochaineRoute(Voiture v)
-	{
-		if(v.getSens().equals(Sens.Un))
-		{
-			if(jonction2!=null)
-			{
-				return jonction2;
-			}
-			else
-			{
-				v.setSens(Sens.Deux);
-				return this;
-			}
-		}
-		else
-		{
-			if(jonction1!=null)
-			{
-				return jonction1;
-			}
-			else
-			{
-				v.setSens(Sens.Un);
-				return this;
-			}
-		}
-	}
-	@Override
-	public int getvmax(Sens s)
-	{
-		if(s.equals(Sens.Un))
-		{
-			return vMaxSens1;
-		}
-		else
-		{
-			return vMaxSens2;
-		}
-	}
-	@Override
-	public CouleurFeu couleurFeu(Voiture v,boolean affichage)
-	{
-		if(v.getSens().equals(Sens.Un))
-		{
-			if(feu1 != null)
-			{
-				if(affichage)System.out.println("||La voiture est sur un segment dont le feu est de couleur : "+ feu1.couleurFeu+"||");
-				return feu1.couleurFeu;
-
-			}
-		}
-		else
-		{
-			if(feu2!=null)
-			{
-				if(affichage)System.out.println("||La voiture est sur un segment dont le feu est de couleur : "+ feu2.couleurFeu+"||");
-				return feu2.couleurFeu;
-			}
-		}
-		return null;
-	}
 	
-	public void updateLimiteVitesse()
-	{
-		vMaxSens1 = Reseau.vitesseMaxGlobale;
-		vMaxSens2 = Reseau.vitesseMaxGlobale;
-		
-		for(Semaphore s : semaphores)
-		{
-			s.limiterVitesse();
-		}
-		if(feu1 != null)
-		{
-			this.feu1.limiterVitesse();
-		}
-		if(feu2 != null)
-		{
-			this.feu2.limiterVitesse();
-		}
-		
-	}
 
 }
 

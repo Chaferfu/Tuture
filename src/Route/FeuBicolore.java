@@ -30,7 +30,7 @@ public class FeuBicolore extends Feu
 			this.getSegment().setvMaxSens2(0); 
 		}
 	}
-	
+
 	public void updateCouleur()
 	{
 		if(couleurFeu.equals(CouleurFeu.Rouge))

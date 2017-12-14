@@ -60,8 +60,6 @@ public abstract class Route
 	public abstract void addObserverCapteur(Voiture v);
 	
 
-
-
 	public int getvmax(Sens s) 
 	{
 

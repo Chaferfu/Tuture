@@ -7,7 +7,11 @@ public class ElementDeRegulationComplexe extends ElementDeRegulation
 	{
 		super(jonction);
 	}
-
+	
+	
+	/**
+	 * Algorithme qui va changer la couleur des feux en fonction des détéctions des capteurs
+	 */
 	@Override
 	public void updateFeuxCarrefour()
 	{
@@ -53,6 +57,10 @@ public class ElementDeRegulationComplexe extends ElementDeRegulation
 		}
 		
 	}
+	
+	/**
+	 * algorithme simpliste utilisé s'il n'y a pas de capteurs présents
+	 */
 	public void updateSimpliste()
 	{
 		for(Feu f : feux)
