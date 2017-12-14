@@ -13,10 +13,8 @@ public class Reseau
 	ArrayList<Voiture> voitures = new ArrayList<Voiture>();
 	private int nbrIntervalles=0;
 	
-	public Reseau() 
-	{
-		// TODO Auto-generated constructor stub
-	}
+	public Reseau() {}
+
 
 	/**
 	 * Fonction qui deroule un intervalle de temps sur l'ensemble du reseau
@@ -55,12 +53,15 @@ public class Reseau
 		}
 	}
 	
+	/**
+	 * Crée les éléments de limitation après création des jonctions
+	 */
 	public void creerElementDeRegulation()
 	{
 		for(Jonction j : jonctions)
 		{
 			// Lors de test on ne considère que des element des regulation complexe, c'est plus interessant
-			if(Math.random()<0)
+			if(Math.random()<0.5)
 			{
 				ElementDeRegulation e = new ElementDeRegulationSimpliste(j);
 				j.setElementDeRegulation(e);
@@ -72,6 +73,10 @@ public class Reseau
 			}
 		}
 	}
+	
+	/**
+	 * Affiche l'ensemble des jonctions du réseau et leurs segments attachés (fonction de test)
+	 */
 	public void printJonctions()
 	{
 		for(Jonction j : jonctions)
@@ -80,7 +85,9 @@ public class Reseau
 		}
 	}
 
-
+	/**
+	 * Fonction de test pour la création du réseau
+	 */
 	public void testReseau()
 	{
 		
@@ -100,6 +107,8 @@ public class Reseau
 		segments.add(new Segment("Rue De <Attention Radar>", 456));
 		segments.add(new Segment("Route Infinie Vers Le Vide Eternel Et Vers De Terre", 100));
 		
+		
+		//création de quelques sémaphores, les feux se créent automatiquement lorsque l'on ajoute un segment à un carrefour
 		segments.get(0).ajouterSemaphore(new Limiteur(50,Sens.Un));
 		segments.get(2).ajouterSemaphore(new Limiteur(60,Sens.Un));
 		segments.get(4).ajouterSemaphore(new Limiteur(70,Sens.Un));
@@ -108,7 +117,7 @@ public class Reseau
 
 
 		
-		//liens segments
+		//liens segments (donc création des feux)
 		jonctions.get(0).joindre(segments.get(0)); 
 		jonctions.get(0).joindre(segments.get(5)); 
 		jonctions.get(0).joindre(segments.get(4));
@@ -127,17 +136,23 @@ public class Reseau
 		jonctions.get(4).joindre(segments.get(3));
 		jonctions.get(4).joindre(segments.get(5));
 		
+		
+		//ajout de quelques capteurs
 		segments.get(0).addCapteur(new CapteurVitesse(segments.get(0),Sens.Deux,150));
-		segments.get(1).addCapteur(new Capteur(segments.get(1),Sens.Deux,150));
+		segments.get(1).addCapteur(new CapteurVitesse(segments.get(1),Sens.Deux,150));
 		segments.get(2).addCapteur(new Capteur(segments.get(2),Sens.Deux,150));
 		segments.get(3).addCapteur(new Capteur(segments.get(3),Sens.Deux,150));
 		
+		
+		//Création des élémnents de régulation en parcourant les jonctions.
 		creerElementDeRegulation();
 		
+		//ajout des voitures
 		voitures.add(new Voiture(segments.get(0), 400, Sens.Deux, 80));
 		voitures.add(new Voiture(segments.get(0), 400, Sens.Deux, 80));
-
 	}
+	
+	
 	public static void main(String[] args) 
 	{
 		Reseau r = new Reseau();
@@ -145,6 +160,7 @@ public class Reseau
 		Scanner sc = new Scanner(System.in);
 		boolean quitter=false;
 		
+		//Interface
 		while(!quitter)
 		{
 			System.out.println("\n||INTERFACE|| Pour lancer un intervalle de temps, tapez 1, pour quitter tapez 2 ||INTERFACE||\n");
@@ -161,12 +177,8 @@ public class Reseau
 			else
 			{
 				System.out.println("\n||Attention|| Vous n'avez pas rentré un commande qui existe ||Attention||");
-			}
-				
+			}	
 		}
-		
-		
-
 	}
 
 }

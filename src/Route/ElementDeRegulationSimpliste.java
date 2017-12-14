@@ -32,6 +32,15 @@ public class ElementDeRegulationSimpliste extends ElementDeRegulation
 				}
 			}
 		}
+		boolean unVert=false;;
+		for(Feu f : feux)
+		{
+			if(f.getCouleurFeu().equals(CouleurFeu.Vert))
+			{
+				unVert=true;
+			}
+		}
+		if(!unVert) feux.get(((int)Math.random())*feux.size()).updateCouleur();
 	}
 
 
