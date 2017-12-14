@@ -5,13 +5,13 @@ import java.util.Observer;
 
 public class Capteur implements Observer
 {
-	private Segment segment;
-	private Sens sens;
-	private int distanceAvantFinRoute;
-	private String informationPassage;
-	private String informationCollision;
-	private boolean uneVoitureEstPasseeIciMonGars;
-	private int nbrVoiture=0;
+	protected Segment segment;
+	protected Sens sens;
+	protected int distanceAvantFinRoute;
+	protected String informationPassage;
+	protected String informationCollision;
+	protected boolean uneVoitureEstPasseeIciMonGars;
+	protected int nbrVoiture=0;
 	
 	@Override
 	public void update(Observable obs, Object obj) 
@@ -36,7 +36,7 @@ public class Capteur implements Observer
 			}
 		}catch(ClassCastException e)
 		{
-			System.out.println("oula qu'est-ce qu'il se passe");
+			System.out.println("Il y a un observable n'étant pas une voiture qui a été repéré par un capteur");
 		}
 		
 		

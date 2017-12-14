@@ -27,7 +27,7 @@ public class Jonction extends Route
 
 	
 	@Override
-	public void couleurFeu(Voiture v) {}
+	public CouleurFeu couleurFeu(Voiture v,boolean affichage) {return null;}
 
 	/**
 	 * joins le segment ga la jonction et met un feu aleatoire sur le segment coté jonction

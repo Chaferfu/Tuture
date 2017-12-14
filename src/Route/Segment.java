@@ -172,11 +172,27 @@ public class Segment extends Route
 	{
 		if(v.getSens().equals(Sens.Un))
 		{
-			return jonction2;
+			if(jonction2!=null)
+			{
+				return jonction2;
+			}
+			else
+			{
+				v.setSens(Sens.Deux);
+				return this;
+			}
 		}
 		else
 		{
-			return jonction1;
+			if(jonction1!=null)
+			{
+				return jonction1;
+			}
+			else
+			{
+				v.setSens(Sens.Un);
+				return this;
+			}
 		}
 	}
 	@Override
@@ -192,13 +208,14 @@ public class Segment extends Route
 		}
 	}
 	@Override
-	public void couleurFeu(Voiture v)
+	public CouleurFeu couleurFeu(Voiture v,boolean affichage)
 	{
 		if(v.getSens().equals(Sens.Un))
 		{
 			if(feu1 != null)
 			{
-				System.out.println("La voiture est sur un segment dont le feu est de couleur : "+ feu1.couleurFeu);
+				if(affichage)System.out.println("||La voiture est sur un segment dont le feu est de couleur : "+ feu1.couleurFeu+"||");
+				return feu1.couleurFeu;
 
 			}
 		}
@@ -206,10 +223,11 @@ public class Segment extends Route
 		{
 			if(feu2!=null)
 			{
-				System.out.println("La voiture est sur un segment dont le feu est de couleur : "+ feu2.couleurFeu);
-
+				if(affichage)System.out.println("||La voiture est sur un segment dont le feu est de couleur : "+ feu2.couleurFeu+"||");
+				return feu2.couleurFeu;
 			}
 		}
+		return null;
 	}
 	
 	public void updateLimiteVitesse()

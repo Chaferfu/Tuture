@@ -11,6 +11,7 @@ public class Reseau
 	ArrayList<Segment> segments = new ArrayList<Segment>();
 	ArrayList<Jonction> jonctions = new ArrayList<Jonction>();
 	ArrayList<Voiture> voitures = new ArrayList<Voiture>();
+	private int nbrIntervalles=0;
 	
 	public Reseau() 
 	{
@@ -22,6 +23,7 @@ public class Reseau
 	 */
 	public void prochaineEtape()
 	{
+		System.out.println("||INTERVALLE DE TEMPS "+(nbrIntervalles++)+"||");
 		//update feux
 		for (Jonction j : jonctions)
 		{
@@ -90,19 +92,19 @@ public class Reseau
 		jonctions.add(new Jonction("Rond point 5"));
 		
 		//création des segments
-		segments.add(new Segment("Coulée Verte", 500));
+		segments.add(new Segment("Coulée Verte", 200));
 		segments.add(new Segment("Rue Collin Mamet", 250));
 		segments.add(new Segment("Boulevard mystique", 100));
-		segments.add(new Segment("Rue Chaferfu Lancier", 1000));
-		segments.add(new Segment("Boulevard De La Voie Lactée", 1300));
+		segments.add(new Segment("Rue Chaferfu Lancier", 100));
+		segments.add(new Segment("Boulevard De La Voie Lactée", 200));
 		segments.add(new Segment("Rue De <Attention Radar>", 456));
-		segments.add(new Segment("Route Infinie Vers Le Vide Eternel Et Vers De Terre", 100000));
+		segments.add(new Segment("Route Infinie Vers Le Vide Eternel Et Vers De Terre", 100));
 		
 		segments.get(0).ajouterSemaphore(new Limiteur(50,Sens.Un));
 		segments.get(2).ajouterSemaphore(new Limiteur(60,Sens.Un));
 		segments.get(4).ajouterSemaphore(new Limiteur(70,Sens.Un));
 		segments.get(6).ajouterSemaphore(new Limiteur(80,Sens.Un));
-		segments.get(5).ajouterSemaphore(new Radar(50,Sens.Un));
+		segments.get(5).ajouterSemaphore(new Limiteur(50,Sens.Un));
 
 
 		
@@ -125,7 +127,7 @@ public class Reseau
 		jonctions.get(4).joindre(segments.get(3));
 		jonctions.get(4).joindre(segments.get(5));
 		
-		segments.get(0).addCapteur(new Capteur(segments.get(0),Sens.Deux,150));
+		segments.get(0).addCapteur(new CapteurVitesse(segments.get(0),Sens.Deux,150));
 		segments.get(1).addCapteur(new Capteur(segments.get(1),Sens.Deux,150));
 		segments.get(2).addCapteur(new Capteur(segments.get(2),Sens.Deux,150));
 		segments.get(3).addCapteur(new Capteur(segments.get(3),Sens.Deux,150));
@@ -145,7 +147,7 @@ public class Reseau
 		
 		while(!quitter)
 		{
-			System.out.println("||INTERFACE|| Pour ||INTERFACE||");
+			System.out.println("\n||INTERFACE|| Pour lancer un intervalle de temps, tapez 1, pour quitter tapez 2 ||INTERFACE||\n");
 			String s = sc.next();
 			if(s.equals("1"))
 			{
@@ -158,7 +160,7 @@ public class Reseau
 			}
 			else
 			{
-				System.out.println("\n||Attention|| Vous n'avez pas rentrer un commande qui existe ||Attention||");
+				System.out.println("\n||Attention|| Vous n'avez pas rentré un commande qui existe ||Attention||");
 			}
 				
 		}

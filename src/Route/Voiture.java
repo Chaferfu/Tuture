@@ -114,12 +114,17 @@ public class Voiture extends Observable
 	
 	public void avancerVoiture()
 	{
-		vitesseCourante = Math.min(vitesseMax,routeCourante.getvmax(sens));
-		System.out.println("Voiture "+ id);
-		routeCourante.couleurFeu(this);
+		int temp = vitesseMax;
+		if(CouleurFeu.Orange.equals(routeCourante.couleurFeu(this,false)))
+		{
+			temp=vitesseMax/2;
+		}
+		vitesseCourante = Math.min(temp,routeCourante.getvmax(sens));
+		System.out.println("||VOITURE ID :"+ id+ "||");
+		routeCourante.couleurFeu(this,true);
 		while(vitesseCourante > 0)
 		{
-			System.out.println("\t"+toString());
+			System.out.println("||"+toString());
 			
 			if(distanceAvantFinRoute == 0)
 			{
@@ -127,9 +132,14 @@ public class Voiture extends Observable
 				routeCourante = routeCourante.prochaineRoute(this);
 				this.deleteObservers();
 				routeCourante.addObserverCapteur(this);
-				vitesseCourante = Math.min(vitesseCourante,routeCourante.getvmax(sens));
+				temp = vitesseMax;
+				if(CouleurFeu.Orange.equals(routeCourante.couleurFeu(this,false)))
+				{
+					temp=vitesseMax/2;
+				}
+				vitesseCourante = Math.min(temp,routeCourante.getvmax(sens));
 				setDistanceAvantFinRoute(routeCourante.getLongueur());
-				routeCourante.couleurFeu(this);
+				routeCourante.couleurFeu(this,true);
 			}
 			else
 			{
@@ -147,7 +157,7 @@ public class Voiture extends Observable
 			}
 			
 		}
-		System.out.println("\t||ETAT FINAL|| "+toString());
+		System.out.println("||ETAT FINAL|| "+toString()+"\n");
 		
 	}
 	

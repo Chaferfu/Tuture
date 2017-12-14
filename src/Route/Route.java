@@ -56,7 +56,7 @@ public abstract class Route
 	public Route prochaineRoute(Voiture v) {
 		return null;
 	}
-	public abstract void couleurFeu(Voiture v);
+	public abstract CouleurFeu couleurFeu(Voiture v,boolean affichage);
 	public abstract void addObserverCapteur(Voiture v);
 	
 
